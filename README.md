@@ -1,0 +1,1 @@
+Upload to GitHub and deploy with Cloudflare Pages.

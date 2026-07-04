@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://structuralabs.in/sitemap.xml
