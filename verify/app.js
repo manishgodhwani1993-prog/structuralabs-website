@@ -1,103 +1,224 @@
 
-/* STRUCTURA LABS Verification */
+/* ==========================================================
+   STRUCTURA LABS - Report Verification Portal
+   Version: 2.0
+   Compatible with:
+   - structuralabs.in
+   - GitHub Pages
+========================================================== */
 
-let reports=[];
+const isGitHubPages = window.location.hostname.includes("github.io");
+const BASE_PATH = isGitHubPages ? "/structuralabs-website" : "";
 
-// Load database
-fetch("../data/reports.json")
-.then(r=>r.json())
-.then(data=>{
+let reports = [];
 
-    reports=data;
+/* ---------------------------
+   Load Report Database
+---------------------------- */
 
-    // Read ?report= from URL
-    const params=new URLSearchParams(window.location.search);
-    const report=params.get("report");
+async function loadReports() {
 
-    if(report){
+    try {
 
-        document.getElementById("searchInput").value=report;
-        verify(report);
+        const response = await fetch(`${BASE_PATH}/data/reports.json`);
+
+        if (!response.ok) {
+
+            throw new Error(`HTTP ${response.status}`);
+
+        }
+
+        reports = await response.json();
+
+        const params = new URLSearchParams(window.location.search);
+        const report = params.get("report");
+
+        if (report) {
+
+            document.getElementById("searchInput").value = report;
+
+            verify(report);
+
+        }
 
     }
 
-})
-.catch(()=>{
+    catch (error) {
 
-    document.getElementById("result").innerHTML=`
-    <div class="card">
-      <div class="red">⚠ Unable to load report database</div>
-    </div>
-    `;
+        console.error(error);
 
-});
+        document.getElementById("result").innerHTML = `
 
-function verifyReport(){
+        <div class="card">
 
-    const report=document.getElementById("searchInput").value.trim();
+            <div class="red">System Error</div>
+
+            <p style="margin-top:15px;color:#666;">
+                Unable to load the report database.
+            </p>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+loadReports();
+
+/* ---------------------------
+   Search Button
+---------------------------- */
+
+function verifyReport() {
+
+    const report = document.getElementById("searchInput").value.trim();
+
+    if (!report) {
+
+        document.getElementById("result").innerHTML = `
+
+        <div class="card">
+
+            <div class="red">Enter Report Number</div>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
 
     verify(report);
 
 }
 
-function verify(report){
+/* ---------------------------
+   Verify Report
+---------------------------- */
 
-    const item=reports.find(r=>r.report===report);
+function verify(reportNumber) {
 
-    const result=document.getElementById("result");
+    const item = reports.find(r => r.report === reportNumber);
 
-    if(item){
+    const result = document.getElementById("result");
 
-        result.innerHTML=`
+    if (item) {
+
+        const verifiedTime = new Date().toLocaleString("en-IN", {
+
+            dateStyle: "medium",
+            timeStyle: "short"
+
+        });
+
+        result.innerHTML = `
 
         <div class="card">
 
-            <div class="green">✓ Report Verified</div>
+            <div class="verified-header">
+
+                <div class="shield">✓</div>
+
+                <div>
+
+                    <h2>Report Verified</h2>
+
+                    <p>Authenticity confirmed by STRUCTURA LABS</p>
+
+                </div>
+
+            </div>
 
             <div class="row">
+
                 <span>Report Number</span>
-                <strong>${item.report}</strong>
+
+                <div class="report-box">
+
+                    <strong class="report-no">${item.report}</strong>
+
+                    <button onclick="copyReport()">
+                        Copy
+                    </button>
+
+                </div>
+
             </div>
 
             <div class="row">
+
                 <span>Client</span>
+
                 <strong>${item.client}</strong>
+
             </div>
 
             <div class="row">
+
                 <span>Sample</span>
+
                 <strong>${item.sample}</strong>
+
             </div>
 
             <div class="row">
+
                 <span>Issue Date</span>
+
                 <strong>${item.date}</strong>
+
             </div>
 
             <div class="row">
+
                 <span>Status</span>
-                <strong>${item.status}</strong>
+
+                <strong>${item.status || "Verified"}</strong>
+
+            </div>
+
+            <div class="row">
+
+                <span>Verified On</span>
+
+                <strong>${verifiedTime}</strong>
+
             </div>
 
             <a class="download"
-               href="../reports/STL-26-000123.pdf"
+               href="${BASE_PATH}${item.pdf}"
                target="_blank">
-               Download Original Report
+
+                Download Original Report
+
             </a>
 
         </div>
 
         `;
 
-    }else{
+    }
 
-        result.innerHTML=`
+    else {
+
+        result.innerHTML = `
 
         <div class="card">
 
-            <div class="red">✕ Report Not Found</div>
+            <div class="red">Report Not Found</div>
 
-            <p>This report number does not exist.</p>
+            <p style="margin-top:15px;color:#666;line-height:1.6;">
+
+                The report number
+
+                <strong>${reportNumber}</strong>
+
+                does not exist in STRUCTURA LABS records.
+
+            </p>
 
         </div>
 
@@ -107,13 +228,42 @@ function verify(report){
 
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
+/* ---------------------------
+   Copy Report Number
+---------------------------- */
 
-    document.getElementById("searchInput")
-    .addEventListener("keypress",function(e){
+function copyReport() {
+
+    const report = document.querySelector(".report-no").innerText;
+
+    navigator.clipboard.writeText(report);
+
+    const button = document.querySelector(".report-box button");
+
+    button.innerText = "Copied";
+
+    setTimeout(() => {
+
+        button.innerText = "Copy";
+
+    }, 1800);
+
+}
+
+/* ---------------------------
+   Enter Key Support
+---------------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const input = document.getElementById("searchInput");
+
+    input.addEventListener("keypress", function(e){
 
         if(e.key==="Enter"){
+
             verifyReport();
+
         }
 
     });
