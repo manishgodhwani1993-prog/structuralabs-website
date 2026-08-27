@@ -1,144 +1,121 @@
 
-/*
- * STRUCTURA LABS - Report Verification
- * Works on GitHub Pages and Custom Domain
- */
+/* STRUCTURA LABS Verification */
 
-const isGitHubPages = window.location.hostname.includes("github.io");
-const BASE_PATH = isGitHubPages ? "/structuralabs-website" : "";
+let reports=[];
 
-let reports = [];
+// Load database
+fetch("../data/reports.json")
+.then(r=>r.json())
+.then(data=>{
 
-/* Load report database */
-async function loadReports() {
-  try {
-    const response = await fetch(`${BASE_PATH}/data/reports.json`);
+    reports=data;
 
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+    // Read ?report= from URL
+    const params=new URLSearchParams(window.location.search);
+    const report=params.get("report");
+
+    if(report){
+
+        document.getElementById("searchInput").value=report;
+        verify(report);
+
     }
 
-    reports = await response.json();
+})
+.catch(()=>{
 
-    // Check if URL contains a report number
-    const parts = window.location.pathname.split("/").filter(Boolean);
-    const lastSegment = parts[parts.length - 1];
+    document.getElementById("result").innerHTML=`
+    <div class="card">
+      <div class="red">⚠ Unable to load report database</div>
+    </div>
+    `;
 
-    if (lastSegment && lastSegment !== "verify") {
-      const input = document.getElementById("searchInput");
-      if (input) input.value = lastSegment;
-      verify(lastSegment);
+});
+
+function verifyReport(){
+
+    const report=document.getElementById("searchInput").value.trim();
+
+    verify(report);
+
+}
+
+function verify(report){
+
+    const item=reports.find(r=>r.report===report);
+
+    const result=document.getElementById("result");
+
+    if(item){
+
+        result.innerHTML=`
+
+        <div class="card">
+
+            <div class="green">✓ Report Verified</div>
+
+            <div class="row">
+                <span>Report Number</span>
+                <strong>${item.report}</strong>
+            </div>
+
+            <div class="row">
+                <span>Client</span>
+                <strong>${item.client}</strong>
+            </div>
+
+            <div class="row">
+                <span>Sample</span>
+                <strong>${item.sample}</strong>
+            </div>
+
+            <div class="row">
+                <span>Issue Date</span>
+                <strong>${item.date}</strong>
+            </div>
+
+            <div class="row">
+                <span>Status</span>
+                <strong>${item.status}</strong>
+            </div>
+
+            <a class="download"
+               href="../reports/STL-26-000123.pdf"
+               target="_blank">
+               Download Original Report
+            </a>
+
+        </div>
+
+        `;
+
+    }else{
+
+        result.innerHTML=`
+
+        <div class="card">
+
+            <div class="red">✕ Report Not Found</div>
+
+            <p>This report number does not exist.</p>
+
+        </div>
+
+        `;
+
     }
 
-  } catch (err) {
-    console.error("Unable to load report database:", err);
-
-    document.getElementById("result").innerHTML = `
-      <div class="card">
-        <div class="red">⚠ System Error</div>
-        <p>Unable to load the report database.</p>
-        <p>Please contact STRUCTURA LABS.</p>
-      </div>`;
-  }
 }
 
-loadReports();
+document.addEventListener("DOMContentLoaded",()=>{
 
-/* Verify button */
-function verifyReport() {
-  const report = document.getElementById("searchInput").value.trim();
-  verify(report);
-}
+    document.getElementById("searchInput")
+    .addEventListener("keypress",function(e){
 
-/* Verify report */
-function verify(reportNumber) {
-
-  const result = document.getElementById("result");
-
-  if (!reportNumber) {
-    result.innerHTML = `
-      <div class="card">
-        <div class="red">Enter Report Number</div>
-      </div>`;
-    return;
-  }
-
-  const report = reports.find(r => r.report === reportNumber);
-
-  if (report) {
-
-    result.innerHTML = `
-      <div class="card">
-
-        <div class="green">✓ Report Verified</div>
-
-        <div class="row">
-          <span>Report Number</span>
-          <strong>${report.report}</strong>
-        </div>
-
-        <div class="row">
-          <span>Client</span>
-          <strong>${report.client}</strong>
-        </div>
-
-        <div class="row">
-          <span>Sample</span>
-          <strong>${report.sample}</strong>
-        </div>
-
-        <div class="row">
-          <span>Issue Date</span>
-          <strong>${report.date}</strong>
-        </div>
-
-        <div class="row">
-          <span>Status</span>
-          <strong>${report.status || "Verified"}</strong>
-        </div>
-
-        <a href="${BASE_PATH}${report.pdf}"
-           target="_blank"
-           class="download">
-          Download Original Report
-        </a>
-
-      </div>
-    `;
-
-  } else {
-
-    result.innerHTML = `
-      <div class="card">
-
-        <div class="red">✕ Report Not Found</div>
-
-        <p>
-          This report number does not exist in STRUCTURA LABS records.
-        </p>
-
-      </div>
-    `;
-
-  }
-
-}
-
-/* Allow Enter key to verify */
-document.addEventListener("DOMContentLoaded", () => {
-
-  const input = document.getElementById("searchInput");
-
-  if (input) {
-
-    input.addEventListener("keypress", function (e) {
-
-      if (e.key === "Enter") {
-        verifyReport();
-      }
+        if(e.key==="Enter"){
+            verifyReport();
+        }
 
     });
-
-  }
 
 });
