@@ -11,286 +11,228 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body{
+font-family:'Montserrat',sans-serif;
+background:#EEF3F8;
+padding:40px 20px;
+color:#111827;
 }
 
-body {
-    font-family: "Montserrat", sans-serif;
-    background: #eef3f8;
-    color: #111827;
-    min-height: 100vh;
-    padding: 40px 20px;
+.container{
+max-width:1200px;
+margin:auto;
+background:#fff;
+border-radius:30px;
+padding:50px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
-.container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 40px auto;
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 55px 60px;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+.logo{
+display:block;
+margin:auto;
+width:220px;
+margin-bottom:30px;
 }
 
-/* LOGO */
-
-.logo {
-    display: block;
-    width: 220px;
-    max-width: 70%;
-    height: auto;
-    margin: 0 auto 35px auto;
+h1{
+text-align:center;
+font-size:58px;
+font-weight:800;
+color:#0B4A92;
+margin-bottom:12px;
 }
 
-/* HEADING */
-
-h1 {
-    text-align: center;
-    color: #0b478b;
-    font-size: 56px;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 15px;
+.subtitle{
+text-align:center;
+font-size:19px;
+color:#64748B;
+margin-bottom:40px;
 }
 
-.subtitle {
-    text-align: center;
-    color: #64748b;
-    font-size: 19px;
-    margin-bottom: 40px;
+.search{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
 }
 
-/* SEARCH */
-
-.search-area {
-    display: flex;
-    gap: 18px;
-    width: 100%;
-    align-items: stretch;
+.search input{
+flex:1;
+min-width:250px;
+height:70px;
+padding:0 24px;
+border:1px solid #D6DFEA;
+border-radius:18px;
+font-size:19px;
+outline:none;
 }
 
-.search-area input {
-    flex: 1;
-    min-width: 0;
-    height: 70px;
-    border: 1px solid #d5deea;
-    border-radius: 18px;
-    padding: 0 25px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 19px;
-    color: #111827;
-    outline: none;
+.search input:focus{
+border-color:#0B4A92;
+box-shadow:0 0 0 3px rgba(11,74,146,.12);
 }
 
-.search-area input:focus {
-    border-color: #0b478b;
-    box-shadow: 0 0 0 3px rgba(11,71,139,0.10);
+button{
+height:70px;
+padding:0 42px;
+border:none;
+border-radius:18px;
+background:#0B4A92;
+color:white;
+font-size:19px;
+font-weight:700;
+cursor:pointer;
 }
 
-.verify-button {
-    height: 70px;
-    padding: 0 42px;
-    border: none;
-    border-radius: 18px;
-    background: #0b478b;
-    color: white;
-    font-family: "Montserrat", sans-serif;
-    font-size: 19px;
-    font-weight: 700;
-    cursor: pointer;
+button:hover{
+background:#08376E;
 }
 
-.verify-button:hover {
-    background: #08366b;
+.loading{
+display:none;
+text-align:center;
+margin-top:25px;
+font-weight:600;
+color:#64748B;
 }
 
-/* LOADING */
-
-.loading {
-    display: none;
-    text-align: center;
-    margin-top: 30px;
-    color: #64748b;
-    font-weight: 600;
+.error{
+display:none;
+margin-top:25px;
+background:#FEE2E2;
+color:#991B1B;
+padding:18px;
+border-radius:14px;
+font-weight:600;
+text-align:center;
 }
 
-/* ERROR */
-
-.error {
-    display: none;
-    margin-top: 30px;
-    padding: 18px 22px;
-    border-radius: 15px;
-    background: #fee2e2;
-    color: #991b1b;
-    text-align: center;
-    font-weight: 600;
+.result{
+display:none;
+margin-top:40px;
 }
 
-/* RESULT */
-
-.result {
-    display: none;
-    margin-top: 45px;
+.badge{
+display:inline-block;
+background:#16A34A;
+color:white;
+padding:12px 24px;
+border-radius:999px;
+font-weight:700;
+margin-bottom:30px;
 }
 
-.verified-badge {
-    display: inline-block;
-    background: #16a34a;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 999px;
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 30px;
+.layout{
+display:grid;
+grid-template-columns:1fr 260px;
+gap:40px;
+align-items:start;
 }
 
-.report-layout {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 50px;
+.row{
+display:grid;
+grid-template-columns:220px 1fr;
+padding:18px 0;
+border-bottom:1px solid #E5E7EB;
 }
 
-/* DETAILS */
-
-.details {
-    width: 100%;
+.label{
+font-weight:700;
+color:#385676;
 }
 
-.detail-row {
-    display: grid;
-    grid-template-columns: 230px 1fr;
-    gap: 20px;
-    padding: 18px 0;
-    border-bottom: 1px solid #e5e7eb;
+.value{
+word-break:break-word;
 }
 
-.detail-label {
-    color: #385676;
-    font-weight: 700;
+.qr{
+text-align:center;
 }
 
-.detail-value {
-    color: #111827;
-    word-break: break-word;
+.qr img{
+width:220px;
+padding:10px;
+background:white;
+border:1px solid #D8E2EC;
+border-radius:16px;
 }
 
-/* QR */
-
-.qr-area {
-    text-align: center;
+.qr small{
+display:block;
+margin-top:10px;
+color:#64748B;
 }
 
-.qr-area img {
-    width: 220px;
-    height: 220px;
-    object-fit: contain;
-    padding: 10px;
-    background: white;
-    border: 1px solid #dbe3ec;
-    border-radius: 16px;
+.download{
+display:inline-block;
+margin-top:35px;
+padding:17px 25px;
+background:#0B4A92;
+color:white;
+text-decoration:none;
+font-weight:700;
+border-radius:15px;
 }
 
-.qr-caption {
-    margin-top: 12px;
-    color: #64748b;
-    font-size: 13px;
+.download:hover{
+background:#08376E;
 }
 
-/* DOWNLOAD */
-
-.download-button {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 17px 25px;
-    background: #0b478b;
-    color: white;
-    text-decoration: none;
-    border-radius: 15px;
-    font-weight: 700;
+.footer{
+text-align:center;
+margin-top:45px;
+font-size:13px;
+color:#94A3B8;
 }
 
-.download-button:hover {
-    background: #08366b;
+@media(max-width:800px){
+
+.container{
+padding:30px 22px;
 }
 
-/* FOOTER */
-
-.footer {
-    text-align: center;
-    margin-top: 45px;
-    color: #94a3b8;
-    font-size: 13px;
+.logo{
+width:170px;
 }
 
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    body {
-        padding: 15px;
-    }
-
-    .container {
-        margin: 15px auto;
-        padding: 35px 22px;
-        border-radius: 24px;
-    }
-
-    .logo {
-        width: 175px;
-        margin-bottom: 30px;
-    }
-
-    h1 {
-        font-size: 38px;
-    }
-
-    .subtitle {
-        font-size: 16px;
-        line-height: 1.5;
-        margin-bottom: 30px;
-    }
-
-    .search-area {
-        flex-direction: column;
-    }
-
-    .search-area input {
-        width: 100%;
-        height: 62px;
-        font-size: 16px;
-    }
-
-    .verify-button {
-        width: 100%;
-        height: 62px;
-    }
-
-    .report-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .qr-area {
-        order: -1;
-    }
-
-    .detail-row {
-        grid-template-columns: 1fr;
-        gap: 7px;
-    }
-
-    .download-button {
-        width: 100%;
-        text-align: center;
-    }
+h1{
+font-size:40px;
 }
 
+.subtitle{
+font-size:16px;
+}
+
+.search{
+flex-direction:column;
+}
+
+.search input,
+button{
+width:100%;
+height:62px;
+font-size:17px;
+}
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.qr{
+order:-1;
+}
+
+.row{
+grid-template-columns:1fr;
+gap:8px;
+}
+
+.download{
+width:100%;
+text-align:center;
+}
+}
 </style>
 </head>
 
@@ -298,472 +240,180 @@ h1 {
 
 <div class="container">
 
-    <!-- STRUCTURA LOGO -->
-    <img
-        src="/logo.jpg"
-        class="logo"
-        alt="STRUCTURA LABS"
-    >
+<img src="/logo.jpg" class="logo" alt="STRUCTURA LABS">
 
-    <h1>Verify Test Report</h1>
+<h1>Verify Test Report</h1>
 
-    <p class="subtitle">
-        Enter the official Report Number to verify the authenticity of a STRUCTURA LABS report.
-    </p>
+<p class="subtitle">
+Enter the official Report Number to verify the authenticity of a STRUCTURA LABS report.
+</p>
 
-    <!-- SEARCH -->
-    <div class="search-area">
+<div class="search">
+<input id="reportInput" placeholder="Example: SITL/26-27/000001" autocomplete="off">
+<button onclick="verifyReport()">Verify</button>
+</div>
 
-        <input
-            type="text"
-            id="reportInput"
-            placeholder="Example: SITL/26-27/000001"
-            autocomplete="off"
-        >
+<div id="loading" class="loading">
+Verifying report...
+</div>
 
-        <button
-            class="verify-button"
-            onclick="verifyReport()"
-        >
-            Verify
-        </button>
+<div id="error" class="error"></div>
 
-    </div>
+<div id="result" class="result">
 
-    <!-- LOADING -->
-    <div id="loading" class="loading">
-        Verifying report...
-    </div>
+<div class="badge">✓ VERIFIED REPORT</div>
 
-    <!-- ERROR -->
-    <div id="error" class="error"></div>
+<div class="layout">
 
-    <!-- RESULT -->
-    <div id="result" class="result">
+<div>
 
-        <div class="verified-badge">
-            ✓ VERIFIED REPORT
-        </div>
+<div class="row">
+<div class="label">Report Number</div>
+<div class="value" id="report_number"></div>
+</div>
 
-        <div class="report-layout">
+<div class="row">
+<div class="label">Sample ID</div>
+<div class="value" id="sample_id"></div>
+</div>
 
-            <!-- REPORT DETAILS -->
-            <div class="details">
+<div class="row">
+<div class="label">Client Name</div>
+<div class="value" id="client_name"></div>
+</div>
 
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Report Number
-                    </div>
+<div class="row">
+<div class="label">Material Category</div>
+<div class="value" id="material_category"></div>
+</div>
 
-                    <div
-                        class="detail-value"
-                        id="report_number">
-                    </div>
-                </div>
+<div class="row">
+<div class="label">Test Name</div>
+<div class="value" id="test_name"></div>
+</div>
 
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Sample ID
-                    </div>
+<div class="row">
+<div class="label">Issue Date</div>
+<div class="value" id="issue_date"></div>
+</div>
 
-                    <div
-                        class="detail-value"
-                        id="sample_id">
-                    </div>
-                </div>
+<div class="row">
+<div class="label">Status</div>
+<div class="value" id="status"></div>
+</div>
 
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Client Name
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="client_name">
-                    </div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Material Category
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="material_category">
-                    </div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Test Name
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="test_name">
-                    </div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">
-                        IS Code
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="is_code">
-                    </div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Issue Date
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="issue_date">
-                    </div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">
-                        Status
-                    </div>
-
-                    <div
-                        class="detail-value"
-                        id="status">
-                    </div>
-                </div>
-
-                <a
-                    id="downloadButton"
-                    class="download-button"
-                    href="#"
-                    target="_blank"
-                >
-                    Download Original Signed PDF
-                </a>
-
-            </div>
-
-            <!-- QR -->
-            <div class="qr-area">
-
-                <img
-                    id="qrImage"
-                    alt="Report Verification QR Code"
-                >
-
-                <div class="qr-caption">
-                    Verification QR
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-        STRUCTURA LABS · Results You Can Build On
-    </div>
+<a id="downloadButton" class="download" target="_blank">
+Download Original Signed PDF
+</a>
 
 </div>
 
+<div class="qr">
+<img id="qrImage" alt="Verification QR">
+<small>Verification QR</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+STRUCTURA LABS · Results You Can Build On
+</div>
+
+</div>
 
 <script>
 
-/*
-=========================================================
-STRUCTURA API
-=========================================================
-*/
+const API="https://structura-api.manishgodhwani1993.workers.dev";
 
-const API =
-    "https://structura-api.manishgodhwani1993.workers.dev";
+const params=new URLSearchParams(window.location.search);
+const autoReport=params.get("report");
 
+window.addEventListener("DOMContentLoaded",()=>{
 
-/*
-=========================================================
-GET REPORT NUMBER FROM URL
-=========================================================
+if(autoReport){
 
-QR will contain:
+document.getElementById("reportInput").value=autoReport;
+verifyReport();
 
-https://structuralabs.in/verify/?report=SITL/26-27/000002
-
-The page automatically reads "report".
-*/
-
-const params =
-    new URLSearchParams(window.location.search);
-
-const reportFromQR =
-    params.get("report");
-
-
-/*
-=========================================================
-AUTOMATIC VERIFICATION
-=========================================================
-*/
-
-window.addEventListener("DOMContentLoaded", function() {
-
-    if (reportFromQR) {
-
-        document.getElementById("reportInput").value =
-            reportFromQR;
-
-        verifyReport();
-
-    }
+}
 
 });
 
+document.getElementById("reportInput").addEventListener("keydown",e=>{
 
-/*
-=========================================================
-ENTER KEY
-=========================================================
-*/
+if(e.key==="Enter") verifyReport();
 
-document
-    .getElementById("reportInput")
-    .addEventListener("keydown", function(event) {
+});
 
-        if (event.key === "Enter") {
-            verifyReport();
-        }
+async function verifyReport(){
 
-    });
+const report=document.getElementById("reportInput").value.trim();
 
+document.getElementById("error").style.display="none";
+document.getElementById("result").style.display="none";
 
-/*
-=========================================================
-VERIFY REPORT
-=========================================================
-*/
+if(!report){
 
-async function verifyReport() {
-
-    const input =
-        document.getElementById("reportInput");
-
-    const reportNumber =
-        input.value.trim();
-
-    const result =
-        document.getElementById("result");
-
-    const error =
-        document.getElementById("error");
-
-    const loading =
-        document.getElementById("loading");
-
-
-    /* Reset */
-
-    result.style.display = "none";
-    error.style.display = "none";
-    loading.style.display = "none";
-
-
-    if (!reportNumber) {
-
-        showError(
-            "Please enter a Report Number."
-        );
-
-        return;
-
-    }
-
-
-    loading.style.display = "block";
-
-
-    try {
-
-        /*
-        Encode the report number safely.
-
-        Example:
-
-        SITL/26-27/000002
-
-        becomes a safe API URL.
-        */
-
-        const encoded =
-            encodeURIComponent(reportNumber);
-
-
-        const response =
-            await fetch(
-                `${API}/verify/${encoded}`
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Verification server returned an error."
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        loading.style.display = "none";
-
-
-        /*
-        REPORT NOT FOUND
-        */
-
-        if (!data.found) {
-
-            showError(
-                "Report not found. Please check the Report Number and try again."
-            );
-
-            return;
-
-        }
-
-
-        /*
-        REPORT FOUND
-        */
-
-        displayReport(data.report);
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        loading.style.display = "none";
-
-        showError(
-            "Unable to connect to the STRUCTURA verification server. Please try again."
-        );
-
-    }
+showError("Please enter a Report Number.");
+return;
 
 }
 
+document.getElementById("loading").style.display="block";
 
-/*
-=========================================================
-DISPLAY REPORT
-=========================================================
-*/
+try{
 
-function displayReport(report) {
+const res=await fetch(`${API}/verify/${encodeURIComponent(report)}`);
 
-    document.getElementById("report_number").textContent =
-        report.report_number || "-";
+const data=await res.json();
 
+document.getElementById("loading").style.display="none";
 
-    document.getElementById("sample_id").textContent =
-        report.sample_id || "-";
+if(!data.found){
 
-
-    document.getElementById("client_name").textContent =
-        report.client_name || "-";
-
-
-    document.getElementById("material_category").textContent =
-        report.material_category || "-";
-
-
-    document.getElementById("test_name").textContent =
-        report.test_name || "-";
-
-
-    document.getElementById("is_code").textContent =
-        report.is_code || "-";
-
-
-    document.getElementById("issue_date").textContent =
-        report.issue_date || "-";
-
-
-    document.getElementById("status").textContent =
-        report.status || "Verified";
-
-
-    /*
-    PDF DOWNLOAD
-    */
-
-    document.getElementById("downloadButton").href =
-        `${API}/download/${encodeURIComponent(report.report_number)}`;
-
-
-    /*
-    QR DISPLAY
-
-    The QR displayed here points back to the
-    STRUCTURA verification page.
-    */
-
-    const verifyURL =
-        `https://structuralabs.in/verify/?report=${encodeURIComponent(report.report_number)}`;
-
-
-    document.getElementById("qrImage").src =
-        `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(verifyURL)}`;
-
-
-    /*
-    SHOW RESULT
-    */
-
-    document.getElementById("result").style.display =
-        "block";
-
-
-    /*
-    Scroll result into view on mobile
-    */
-
-    document.getElementById("result").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+showError("Report not found.");
+return;
 
 }
 
+const r=data.report;
 
-/*
-=========================================================
-ERROR MESSAGE
-=========================================================
-*/
+document.getElementById("report_number").textContent=r.report_number;
+document.getElementById("sample_id").textContent=r.sample_id;
+document.getElementById("client_name").textContent=r.client_name;
+document.getElementById("material_category").textContent=r.material_category;
+document.getElementById("test_name").textContent=r.test_name;
+document.getElementById("issue_date").textContent=r.issue_date;
+document.getElementById("status").textContent=r.status;
 
-function showError(message) {
+document.getElementById("downloadButton").href=
+`${API}/download/${encodeURIComponent(r.report_number)}`;
 
-    const error =
-        document.getElementById("error");
+const verifyURL=`https://structuralabs.in/verify/?report=${encodeURIComponent(r.report_number)}`;
 
-    error.textContent =
-        message;
+document.getElementById("qrImage").src=
+`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(verifyURL)}`;
 
-    error.style.display =
-        "block";
+document.getElementById("result").style.display="block";
+
+}catch(err){
+
+document.getElementById("loading").style.display="none";
+showError("Unable to connect to the verification server.");
 
 }
 
+}
+
+function showError(msg){
+
+const box=document.getElementById("error");
+box.textContent=msg;
+box.style.display="block";
+
+}
 </script>
 
 </body>
