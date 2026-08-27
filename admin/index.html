@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STRUCTURA Admin Dashboard</title>
+<title>STRUCTURA LABS | Dashboard</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,99 +20,101 @@
 
 <div class="layout">
 
-    <!-- Sidebar -->
+<aside class="sidebar">
 
-    <aside class="sidebar">
+<img src="../logo.jpg" class="logo" alt="STRUCTURA LABS">
 
-        <img src="../logo.jpg" alt="STRUCTURA LABS" class="logo">
+<div class="menu">
 
-        <div class="menu">
+<button class="active">
+🏠 Dashboard
+</button>
 
-            <button class="active">🏠 Dashboard</button>
+<button onclick="window.location.href='/admin/pages/new-sample.html'">
+📥 New Sample
+</button>
 
-            <button onclick="window.location.href='/admin/pages/new-report.html'">
-                📄 New Report
-            </button>
+<button onclick="window.location.href='/admin/pages/testing-queue.html'">
+🧪 Testing Queue
+</button>
 
-            <button onclick="window.location.href='/admin/pages/reports.html'">
-                📁 Reports
-            </button>
+<button onclick="window.location.href='/admin/pages/reports.html'">
+📄 Reports
+</button>
 
-            <button onclick="window.location.href='/admin/pages/clients.html'">
-                👥 Clients
-            </button>
+<button onclick="window.location.href='/admin/pages/clients.html'">
+👥 Clients
+</button>
 
-            <button onclick="window.location.href='/admin/pages/settings.html'">
-                ⚙️ Settings
-            </button>
+<button onclick="window.location.href='/admin/pages/settings.html'">
+⚙️ Settings
+</button>
 
-        </div>
+</div>
 
-    </aside>
+</aside>
 
-    <!-- Main Content -->
+<main class="main">
 
-    <main class="main">
+<div class="header">
 
-        <div class="header">
+<div>
 
-            <div>
+<h1>Dashboard</h1>
 
-                <h1>Dashboard</h1>
+<div class="subtitle">
+STRUCTURA Laboratory Information Management System
+</div>
 
-                <div class="subtitle">
-                    STRUCTURA Report Management System
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
+<!-- Statistics -->
 
-        <!-- Statistics -->
+<div class="stats">
 
-        <div class="stats">
+<div class="card">
+<h3>Samples Today</h3>
+<div class="value">0</div>
+</div>
 
-            <div class="card">
-                <h3>Reports Today</h3>
-                <div class="value">0</div>
-            </div>
+<div class="card">
+<h3>Testing Queue</h3>
+<div class="value">0</div>
+</div>
 
-            <div class="card">
-                <h3>This Month</h3>
-                <div class="value">0</div>
-            </div>
+<div class="card">
+<h3>Reports Issued</h3>
+<div class="value">0</div>
+</div>
 
-            <div class="card">
-                <h3>Clients</h3>
-                <div class="value">0</div>
-            </div>
+<div class="card">
+<h3>Clients</h3>
+<div class="value">0</div>
+</div>
 
-            <div class="card">
-                <h3>Pending</h3>
-                <div class="value">0</div>
-            </div>
+</div>
 
-        </div>
+<!-- Quick Actions -->
 
-        <!-- Quick Actions -->
+<div class="quick">
 
-        <div class="quick">
+<button onclick="window.location.href='/admin/pages/new-sample.html'">
+📥 New Sample
+</button>
 
-            <button onclick="window.location.href='/admin/pages/new-report.html'">
-                ➕ New Report
-            </button>
+<button onclick="window.location.href='/admin/pages/testing-queue.html'">
+🧪 Testing Queue
+</button>
 
-            <button onclick="window.location.href='/admin/pages/reports.html'">
-                🔍 Search Reports
-            </button>
+<button onclick="window.location.href='/admin/pages/reports.html'">
+📄 Reports
+</button>
 
-            <button onclick="window.location.href='/admin/pages/clients.html'">
-                👥 Clients
-            </button>
+</div>
 
-        </div>
-
-    </main>
+</main>
 
 </div>
 
