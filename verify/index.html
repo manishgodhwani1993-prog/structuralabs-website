@@ -1,367 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>STRUCTURA LABS | Report Verification</title>
+<title>Verify Report | STRUCTURA LABS</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-
-font-family:'Montserrat',sans-serif;
-background:#EEF2F6;
-padding:20px;
-min-height:100vh;
-
+font-family:Montserrat,sans-serif;
+background:#eef3f8;
+color:#17375e;
 }
 
 .container{
-
-max-width:960px;
-margin:0 auto;
-background:white;
-padding:42px 48px 36px;
-border-radius:28px;
-border:1px solid #E5E7EB;
-box-shadow:0 14px 40px rgba(8,60,116,.08);
-
+max-width:850px;
+margin:60px auto;
+padding:30px;
 }
 
-/* ---------- HEADER ---------- */
-
-.logo-section{
-
-text-align:center;
-margin-bottom:32px;
-
+.card{
+background:#fff;
+border-radius:24px;
+padding:40px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
 .logo{
-
-width:220px;
-height:auto;
-display:block;
-margin:0 auto;
-
+text-align:center;
+margin-bottom:10px;
 }
 
-.verify-title{
-
-margin-top:16px;
-font-size:13px;
-font-weight:500;
-letter-spacing:3.5px;
-text-transform:uppercase;
-color:#6B7280;
-
+.logo img{
+height:62px;
 }
 
-/* ---------- SEARCH ---------- */
+h1{
+text-align:center;
+font-size:34px;
+font-weight:800;
+color:#0d3f7f;
+margin-top:15px;
+}
+
+.subtitle{
+text-align:center;
+color:#64748b;
+margin:10px 0 35px;
+}
 
 .search{
-
 display:flex;
-gap:18px;
+gap:12px;
 margin-bottom:30px;
-
+flex-wrap:wrap;
 }
 
 .search input{
-
 flex:1;
-height:72px;
-padding:0 26px;
-font-size:18px;
-font-weight:500;
-border-radius:18px;
-border:1px solid #D7DCE2;
-outline:none;
-transition:.25s;
-
-}
-
-.search input::placeholder{
-
-color:#7C8794;
-
-}
-
-.search input:focus{
-
-border-color:#083C74;
-box-shadow:0 0 0 4px rgba(8,60,116,.08);
-
+padding:16px;
+border:1px solid #d5dce5;
+border-radius:14px;
+font-size:16px;
 }
 
 .search button{
-
-width:160px;
-height:72px;
+padding:16px 28px;
+background:#0d3f7f;
+color:#fff;
 border:none;
-border-radius:18px;
-background:#083C74;
-color:white;
-font-size:18px;
-font-weight:600;
+border-radius:14px;
+font-weight:700;
 cursor:pointer;
-transition:.25s;
-
 }
 
-.search button:hover{
-
-background:#062E5A;
-transform:translateY(-1px);
-
+.result{
+display:none;
+margin-top:20px;
+border-top:1px solid #e5e7eb;
+padding-top:30px;
 }
 
-/* ---------- RESULT CARD ---------- */
-
-.card{
-
-border:1px solid #E5E7EB;
-border-radius:20px;
-padding:30px;
-animation:fade .35s ease;
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-transform:translateY(10px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-/* ---------- VERIFIED ---------- */
-
-.verified-header{
-
-display:flex;
-align-items:center;
-gap:18px;
-margin-bottom:28px;
-
-}
-
-.shield{
-
-width:60px;
-height:60px;
-border-radius:50%;
-background:#0D8B6F;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:28px;
-font-weight:700;
-
-}
-
-.verified-header h2{
-
-font-size:28px;
-font-weight:700;
-color:#0D8B6F;
-margin:0;
-
-}
-
-.verified-header p{
-
-margin-top:4px;
+.badge{
+display:inline-block;
+background:#16a34a;
+color:#fff;
+padding:8px 18px;
+border-radius:999px;
 font-size:14px;
-color:#6B7280;
-
-}
-
-/* ---------- ERROR ---------- */
-
-.red{
-
-font-size:26px;
 font-weight:700;
-color:#D93025;
-
+margin-bottom:20px;
 }
 
-/* ---------- DETAILS ---------- */
-
-.row{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:16px 0;
-border-bottom:1px solid #EEF1F4;
-gap:20px;
-
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
 }
 
-.row span{
-
-font-size:16px;
-font-weight:500;
-color:#5B6470;
-
+td{
+padding:12px 0;
+border-bottom:1px solid #edf2f7;
+vertical-align:top;
 }
 
-.row strong{
-
-font-size:18px;
-font-weight:600;
-color:#111827;
-text-align:right;
-
+td:first-child{
+font-weight:700;
+width:42%;
+color:#475569;
 }
-
-/* ---------- REPORT NUMBER ---------- */
-
-.report-box{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-.report-box button{
-
-padding:7px 12px;
-border:none;
-border-radius:8px;
-background:#083C74;
-color:white;
-font-size:13px;
-font-weight:600;
-cursor:pointer;
-
-}
-
-/* ---------- DOWNLOAD ---------- */
 
 .download{
-
-display:block;
+display:inline-block;
 margin-top:30px;
-height:62px;
-line-height:62px;
-text-align:center;
-background:#0D8B6F;
-border-radius:16px;
+padding:14px 24px;
+background:#0d3f7f;
 color:white;
-font-size:18px;
-font-weight:600;
 text-decoration:none;
-transition:.25s;
-
+border-radius:12px;
+font-weight:700;
 }
 
-.download:hover{
-
-background:#0A725B;
-
+.notfound{
+display:none;
+margin-top:25px;
+padding:18px;
+border-radius:14px;
+background:#fef2f2;
+color:#991b1b;
+font-weight:600;
 }
 
-/* ---------- FOOTER ---------- */
+@media(max-width:700px){
 
-.footer{
-
-margin-top:34px;
-text-align:center;
-font-size:13px;
-line-height:1.7;
-color:#6B7280;
-
-}
-
-/* ---------- MOBILE ---------- */
-
-@media(max-width:768px){
-
-body{
-
-padding:12px;
-
-}
-
-.container{
-
-padding:28px 22px;
-
-}
-
-.logo{
-
-width:140px;
-
-}
-
-.verify-title{
-
-font-size:11px;
-letter-spacing:3px;
-
-}
+.card{padding:25px;}
 
 .search{
-
 flex-direction:column;
-gap:14px;
-
 }
 
 .search button{
-
 width:100%;
-
 }
 
-.row{
-
-flex-direction:column;
-align-items:flex-start;
-gap:6px;
-
-}
-
-.row strong{
-
-text-align:left;
-
-}
-
-.verified-header{
-
-flex-direction:column;
-text-align:center;
-
+h1{
+font-size:28px;
 }
 
 }
@@ -374,25 +165,25 @@ text-align:center;
 
 <div class="container">
 
-<div class="logo-section">
+<div class="card">
 
-<img src="../logo.jpg"
-alt="STRUCTURA LABS Logo"
-class="logo">
-
-<div class="verify-title">
-
-Official Report Verification Portal
-
+<div class="logo">
+<img src="/banner.png" alt="STRUCTURA LABS">
 </div>
+
+<h1>Verify Test Report</h1>
+
+<div class="subtitle">
+
+Enter the official Report Number or scan the QR Code.
 
 </div>
 
 <div class="search">
 
 <input
-id="searchInput"
-placeholder="Enter Report Number (e.g. SITL/26-27/000123)">
+id="reportInput"
+placeholder="Example: SITL/26-27/000001">
 
 <button onclick="verifyReport()">
 
@@ -402,21 +193,140 @@ Verify
 
 </div>
 
-<div id="result"></div>
+<div class="notfound" id="notfound">
 
-<div class="footer">
+Report not found.
 
-STRUCTURA INFRA TESTING LABS PRIVATE LIMITED
+</div>
 
-<br>
+<div class="result" id="result">
 
-Ambernath • Maharashtra
+<div class="badge">
+
+✔ VERIFIED
+
+</div>
+
+<table>
+
+<tr>
+<td>Report Number</td>
+<td id="r_report"></td>
+</tr>
+
+<tr>
+<td>Sample ID</td>
+<td id="r_sample"></td>
+</tr>
+
+<tr>
+<td>Client Name</td>
+<td id="r_client"></td>
+</tr>
+
+<tr>
+<td>Material</td>
+<td id="r_material"></td>
+</tr>
+
+<tr>
+<td>Test</td>
+<td id="r_test"></td>
+</tr>
+
+<tr>
+<td>IS Code</td>
+<td id="r_is"></td>
+</tr>
+
+<tr>
+<td>Issue Date</td>
+<td id="r_issue"></td>
+</tr>
+
+<tr>
+<td>Status</td>
+<td id="r_status"></td>
+</tr>
+
+</table>
+
+<a
+id="pdfLink"
+class="download"
+target="_blank">
+
+Download Original Signed PDF
+
+</a>
 
 </div>
 
 </div>
 
-<script src="app.js"></script>
+</div>
+
+<script>
+
+const API="https://structura-api.manishgodhwani1993.workers.dev";
+
+async function verifyReport(number){
+
+const reportNo=number||document.getElementById("reportInput").value.trim();
+
+if(!reportNo)return;
+
+document.getElementById("result").style.display="none";
+document.getElementById("notfound").style.display="none";
+
+const res=await fetch(
+API+"/verify/"+encodeURIComponent(reportNo)
+);
+
+const data=await res.json();
+
+if(!data.found){
+
+document.getElementById("notfound").style.display="block";
+
+return;
+
+}
+
+const r=data.report;
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("r_report").innerText=r.report_number;
+document.getElementById("r_sample").innerText=r.sample_id;
+document.getElementById("r_client").innerText=r.client_name;
+document.getElementById("r_material").innerText=r.material_category;
+document.getElementById("r_test").innerText=r.test_name;
+document.getElementById("r_is").innerText=
+`${r.is_code||"-"} ${r.is_part||""}`;
+
+document.getElementById("r_issue").innerText=r.issue_date;
+document.getElementById("r_status").innerText=r.status;
+
+document.getElementById("pdfLink").href=
+API+r.pdf_url;
+
+}
+
+const path=window.location.pathname.split("/");
+
+if(path.length>2){
+
+const report=decodeURIComponent(path.slice(2).join("/"));
+
+document.getElementById("reportInput").value=report;
+
+verifyReport(report);
+
+}
+
+</script>
 
 </body>
+
 </html>
