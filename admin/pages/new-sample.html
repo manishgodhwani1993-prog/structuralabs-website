@@ -21,11 +21,7 @@
 --border:#D8DEE8;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Montserrat',sans-serif;
@@ -34,66 +30,59 @@ padding:30px;
 }
 
 .container{
-max-width:1100px;
+max-width:1180px;
 margin:auto;
 background:white;
-padding:40px;
+padding:42px;
 border-radius:24px;
 box-shadow:0 12px 35px rgba(0,0,0,.05);
 }
 
-.header{
-margin-bottom:30px;
-}
+.header{margin-bottom:32px;}
 
 h1{
-font-size:42px;
+font-size:40px;
 font-weight:700;
 color:var(--navy);
 }
 
 .subtitle{
 margin-top:8px;
-color:#64748B;
 font-size:15px;
+color:#64748B;
 }
 
 .section-title{
+margin:36px 0 18px;
+padding-bottom:10px;
 font-size:20px;
 font-weight:700;
 color:var(--navy);
-margin:35px 0 18px;
-padding-bottom:10px;
 border-bottom:1px solid #E5E7EB;
 }
 
 .grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,1fr);
 gap:22px;
 }
 
-.full{
-grid-column:1/-1;
-}
+.full{grid-column:1/-1;}
 
 label{
 display:block;
-font-weight:600;
 margin-bottom:8px;
+font-weight:600;
 font-size:15px;
 }
 
-input,
-select,
-textarea{
+input,select,textarea{
 width:100%;
 padding:15px;
 border:1px solid var(--border);
 border-radius:14px;
 font-family:'Montserrat',sans-serif;
 font-size:15px;
-background:white;
 }
 
 input[readonly]{
@@ -110,7 +99,7 @@ resize:vertical;
 .actions{
 display:flex;
 gap:18px;
-margin-top:35px;
+margin-top:36px;
 }
 
 .primary{
@@ -134,31 +123,15 @@ font-weight:600;
 cursor:pointer;
 }
 
-.primary:hover{
-background:#062D5A;
-}
-
-.secondary:hover{
-background:#F8FAFC;
-}
+.primary:hover{background:#062D5A;}
+.secondary:hover{background:#F8FAFC;}
 
 @media(max-width:768px){
 
-.container{
-padding:24px;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.actions{
-flex-direction:column;
-}
-
-h1{
-font-size:34px;
-}
+.container{padding:24px;}
+.grid{grid-template-columns:1fr;}
+.actions{flex-direction:column;}
+h1{font-size:32px;}
 
 }
 
@@ -171,176 +144,132 @@ font-size:34px;
 <div class="container">
 
 <div class="header">
-
-<h1>New Sample</h1>
-
-<div class="subtitle">
-Register an incoming sample before testing begins.
+<h1>New Sample Registration</h1>
+<div class="subtitle">Register every incoming sample before testing begins.</div>
 </div>
-
-</div>
-
-<!-- SAMPLE RECEIPT -->
 
 <div class="section-title">Sample Receipt</div>
 
 <div class="grid">
 
 <div>
-
 <label>Sample ID</label>
-
 <input id="sampleId" readonly>
-
 </div>
 
 <div>
-
 <label>Sample Receipt Date *</label>
-
 <input type="date" id="receiptDate" required>
-
 </div>
 
 <div>
-
 <label>Sample Receipt Time *</label>
-
 <input type="time" id="receiptTime" required>
-
 </div>
 
 <div>
-
 <label>Received By</label>
-
-<input type="text" id="receivedBy" placeholder="Technician / Staff Name">
-
+<input placeholder="Technician / Staff Name">
 </div>
 
 </div>
 
-<!-- CLIENT DETAILS -->
-
-<div class="section-title">Client Details</div>
+<div class="section-title">Client Information</div>
 
 <div class="grid">
 
 <div class="full">
-
-<label>Client Name</label>
-
-<input placeholder="Search existing or enter new client">
-
+<label>Client Name *</label>
+<input placeholder="ABC Construction Pvt Ltd">
 </div>
 
 <div>
-
 <label>Project Name</label>
-
-<input placeholder="Example: RCC Foundation">
-
+<input placeholder="Bridge / Building / Road Project">
 </div>
 
 <div>
-
 <label>Site Location</label>
-
-<input placeholder="Example: Ambernath MIDC">
-
+<input placeholder="Ambernath MIDC">
 </div>
 
 <div>
-
 <label>Contact Person</label>
-
-<input placeholder="Enter contact person">
-
+<input placeholder="Site Engineer">
 </div>
 
 <div>
-
 <label>Mobile Number</label>
-
 <input placeholder="9876543210">
-
 </div>
 
 </div>
 
-<!-- SAMPLE DETAILS -->
-
-<div class="section-title">Sample Details</div>
+<div class="section-title">Sample Information</div>
 
 <div class="grid">
 
 <div>
-
-<label>Material Category</label>
+<label>Material Category *</label>
 
 <select id="material" onchange="updateTests()">
 
 <option value="">Select Material</option>
-<option value="Concrete">Concrete</option>
-<option value="Cement">Cement</option>
-<option value="Fine Aggregate">Fine Aggregate</option>
-<option value="Coarse Aggregate">Coarse Aggregate</option>
-<option value="Soil">Soil</option>
-<option value="Bitumen">Bitumen</option>
-<option value="Construction Chemicals">Construction Chemicals</option>
-<option value="Water">Water</option>
-<option value="Other">Other</option>
+
+<option>Concrete</option>
+<option>Cement</option>
+<option>Fine Aggregate</option>
+<option>Coarse Aggregate</option>
+<option>Soil</option>
+<option>Bitumen</option>
+<option>Construction Chemicals</option>
+<option>Water</option>
+<option>Bricks / Blocks</option>
+<option>Tiles</option>
+<option>Steel</option>
+<option>Other</option>
 
 </select>
 
 </div>
 
 <div>
-
-<label>Test Requested</label>
+<label>Test Requested *</label>
 
 <input
-list="testSuggestions"
 id="testType"
-placeholder="Select or type the test">
+list="testSuggestions"
+placeholder="Select or type the required test">
 
 <datalist id="testSuggestions"></datalist>
 
 </div>
 
 <div>
-
 <label>Grade / Specification</label>
-
-<input placeholder="Example: M30">
-
+<input placeholder="Example: M30 / OPC 53 / IS Code">
 </div>
 
 <div>
-
 <label>Quantity</label>
-
 <input placeholder="Example: 3 Cubes">
-
 </div>
 
 <div>
-
 <label>Sample Condition</label>
 
 <select>
 
 <option>Good</option>
-<option>Damaged</option>
 <option>Wet</option>
 <option>Dry</option>
+<option>Damaged</option>
 
 </select>
 
 </div>
 
 <div>
-
 <label>Priority</label>
 
 <select>
@@ -353,18 +282,20 @@ placeholder="Select or type the test">
 </div>
 
 <div class="full">
-
 <label>Remarks</label>
-
 <textarea placeholder="Any special instructions..."></textarea>
+</div>
 
+<div class="full">
+<label>Upload Sample Photos (Optional)</label>
+<input type="file" multiple accept="image/*">
 </div>
 
 </div>
 
 <div class="actions">
 
-<button class="secondary" onclick="window.history.back()">
+<button class="secondary" onclick="history.back()">
 Cancel
 </button>
 
@@ -378,28 +309,21 @@ Register Sample
 
 <script>
 
-// ===================================================
-// Financial Year (26-27)
-// ===================================================
-
 function getFinancialYear(){
 
-const today=new Date();
-
-const year=today.getFullYear();
-const month=today.getMonth();
+const d=new Date();
 
 let start,end;
 
-if(month>=3){
+if(d.getMonth()>=3){
 
-start=year;
-end=year+1;
+start=d.getFullYear();
+end=d.getFullYear()+1;
 
 }else{
 
-start=year-1;
-end=year;
+start=d.getFullYear()-1;
+end=d.getFullYear();
 
 }
 
@@ -407,68 +331,30 @@ return `${String(start).slice(-2)}-${String(end).slice(-2)}`;
 
 }
 
-// ===================================================
-// Sample ID Generator
-// ===================================================
-
 let sequence=1;
 
-function generateSampleID(){
-
-const fy=getFinancialYear();
-
-const serial=String(sequence).padStart(6,"0");
-
 document.getElementById("sampleId").value=
-`SMID/${fy}/${serial}`;
-
-}
-
-// ===================================================
-// Default Date & Time (Editable)
-// ===================================================
-
-function setDefaultReceiptDateTime(){
+`SMID/${getFinancialYear()}/${String(sequence).padStart(6,"0")}`;
 
 const now=new Date();
 
-const year=now.getFullYear();
-
-const month=String(now.getMonth()+1).padStart(2,"0");
-
-const day=String(now.getDate()).padStart(2,"0");
-
 document.getElementById("receiptDate").value=
-`${year}-${month}-${day}`;
-
-const hours=String(now.getHours()).padStart(2,"0");
-
-const minutes=String(now.getMinutes()).padStart(2,"0");
+now.toISOString().slice(0,10);
 
 document.getElementById("receiptTime").value=
-`${hours}:${minutes}`;
-
-}
-
-generateSampleID();
-
-setDefaultReceiptDateTime();
-
-// ===================================================
-// Dynamic Test Suggestions
-// ===================================================
+`${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
 
 const tests={
 
 "Concrete":[
 "Cube Compressive Strength",
-"Slump Test",
-"Mix Design",
-"Density",
 "Flexural Strength",
 "Split Tensile Strength",
-"Rapid Chloride Permeability (RCPT)",
-"Water Permeability"
+"Slump Test",
+"Density",
+"Mix Design",
+"Water Permeability",
+"Rapid Chloride Permeability (RCPT)"
 ],
 
 "Cement":[
@@ -525,7 +411,29 @@ const tests={
 "pH",
 "TDS",
 "Chloride",
-"Sulphate"
+"Sulphate",
+"Alkalinity"
+],
+
+"Bricks / Blocks":[
+"Compressive Strength",
+"Water Absorption",
+"Efflorescence",
+"Dimensions"
+],
+
+"Tiles":[
+"Water Absorption",
+"Breaking Strength",
+"Abrasion Resistance",
+"Dimensions"
+],
+
+"Steel":[
+"Tensile Test",
+"Bend Test",
+"Rebend Test",
+"Elongation"
 ]
 
 };
@@ -533,13 +441,10 @@ const tests={
 function updateTests(){
 
 const material=document.getElementById("material").value;
-
 const datalist=document.getElementById("testSuggestions");
-
 const input=document.getElementById("testType");
 
 datalist.innerHTML="";
-
 input.value="";
 
 if(!tests[material]) return;
@@ -547,9 +452,7 @@ if(!tests[material]) return;
 tests[material].forEach(test=>{
 
 const option=document.createElement("option");
-
 option.value=test;
-
 datalist.appendChild(option);
 
 });
