@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRUCTURA LABS | Report Verification</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+}
+
+.container{
+max-width:700px;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+h1{
+color:#083c74;
+text-align:center;
+margin:0;
+}
+
+.subtitle{
+text-align:center;
+color:#0d8b6f;
+margin:10px 0 30px;
+}
+
+.search{
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:14px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+padding:14px 20px;
+border:none;
+border-radius:10px;
+background:#083c74;
+color:white;
+cursor:pointer;
+}
+
+.card{
+margin-top:30px;
+padding:20px;
+border:1px solid #ddd;
+border-radius:12px;
+}
+
+.green{
+color:#0d8b6f;
+font-size:22px;
+font-weight:bold;
+}
+
+.red{
+color:#d93025;
+font-size:22px;
+font-weight:bold;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:8px 0;
+border-bottom:1px solid #eee;
+}
+
+.download{
+display:block;
+margin-top:20px;
+text-align:center;
+background:#0d8b6f;
+color:white;
+text-decoration:none;
+padding:12px;
+border-radius:8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>STRUCTURA LABS</h1>
+
+<div class="subtitle">
+Engineering Trust Through Testing
+</div>
+
+<div class="search">
+
+<input id="searchInput"
+placeholder="Enter Report Number">
+
+<button onclick="verifyReport()">
+Verify
+</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
