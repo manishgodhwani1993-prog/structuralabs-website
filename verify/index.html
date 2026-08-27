@@ -2,279 +2,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>STRUCTURA LABS | Report Verification</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#eef1f5;
-    min-height:100vh;
-    padding:30px 15px;
+
+font-family:'Montserrat',sans-serif;
+background:#EEF2F6;
+padding:35px 18px;
+min-height:100vh;
+
 }
 
 .container{
-    max-width:950px;
-    margin:auto;
-    background:#fff;
-    border-radius:22px;
-    padding:35px;
-    border:1px solid #e5e7eb;
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+max-width:960px;
+margin:auto;
+background:white;
+padding:46px 44px;
+border-radius:26px;
+border:1px solid #E5E7EB;
+box-shadow:0 14px 38px rgba(8,60,116,.08);
+
 }
 
 /* ---------- HEADER ---------- */
 
 .logo-section{
-    text-align:center;
-    margin-bottom:35px;
+
+text-align:center;
+margin-bottom:38px;
+
 }
 
 .logo{
-    width:95px;
-    height:95px;
-    object-fit:contain;
-    border-radius:50%;
-    background:white;
-    padding:8px;
-    box-shadow:0 4px 14px rgba(0,0,0,.12);
-    margin-bottom:18px;
+
+width:74px;
+height:74px;
+object-fit:contain;
+margin-bottom:22px;
+
 }
 
 .logo-section h1{
-    color:#083c74;
-    font-size:56px;
-    font-weight:800;
-    letter-spacing:-1px;
+
+font-size:64px;
+font-weight:700;
+letter-spacing:-1.8px;
+line-height:1;
+color:#083C74;
+
 }
 
 .subtitle{
-    color:#0d8b6f;
-    font-size:22px;
-    margin-top:10px;
+
+margin-top:18px;
+font-size:20px;
+font-weight:500;
+color:#0D8B6F;
+
 }
 
 .verify-title{
-    margin-top:12px;
-    color:#666;
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
+
+margin-top:18px;
+font-size:12px;
+font-weight:500;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#6B7280;
+
 }
 
 /* ---------- SEARCH ---------- */
 
 .search{
-    display:flex;
-    gap:12px;
-    margin-bottom:35px;
+
+display:flex;
+gap:16px;
+margin-bottom:34px;
+
 }
 
 .search input{
-    flex:1;
-    padding:18px;
-    font-size:20px;
-    border-radius:14px;
-    border:1px solid #cfd5db;
-    outline:none;
+
+flex:1;
+height:72px;
+padding:0 24px;
+font-size:18px;
+font-weight:500;
+border-radius:18px;
+border:1px solid #D7DCE2;
+outline:none;
+transition:.2s;
+
+}
+
+.search input::placeholder{
+
+color:#7C8794;
+
 }
 
 .search input:focus{
-    border-color:#083c74;
-    box-shadow:0 0 0 3px rgba(8,60,116,.12);
+
+border-color:#083C74;
+box-shadow:0 0 0 4px rgba(8,60,116,.08);
+
 }
 
 .search button{
-    padding:18px 28px;
-    background:#083c74;
-    color:white;
-    border:none;
-    border-radius:14px;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.25s;
+
+width:132px;
+height:72px;
+border:none;
+border-radius:18px;
+background:#083C74;
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:.25s;
+
 }
 
 .search button:hover{
-    background:#062e5a;
+
+background:#062E5A;
+
 }
 
 /* ---------- RESULT CARD ---------- */
 
 .card{
-    border:1px solid #e5e7eb;
-    border-radius:18px;
-    padding:28px;
-    animation:fade .35s ease;
+
+border:1px solid #E5E7EB;
+border-radius:20px;
+padding:30px;
+animation:fade .35s ease;
+
 }
 
 @keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(12px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+
+from{
+
+opacity:0;
+transform:translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
 }
 
 /* ---------- VERIFIED ---------- */
 
 .verified-header{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-bottom:25px;
+
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:28px;
+
 }
 
 .shield{
-    width:64px;
-    height:64px;
-    border-radius:50%;
-    background:#0d8b6f;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:32px;
-    font-weight:bold;
+
+width:58px;
+height:58px;
+border-radius:50%;
+background:#0D8B6F;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:28px;
+font-weight:700;
+
 }
 
 .verified-header h2{
-    color:#0d8b6f;
-    font-size:24px;
+
+font-size:28px;
+font-weight:700;
+color:#0D8B6F;
+
 }
 
 .verified-header p{
-    color:#666;
-    margin-top:4px;
-    font-size:14px;
+
+margin-top:4px;
+font-size:14px;
+color:#6B7280;
+
 }
 
-/* ---------- NOT FOUND ---------- */
+/* ---------- ERROR ---------- */
 
 .red{
-    color:#d93025;
-    font-size:24px;
-    font-weight:bold;
+
+font-size:26px;
+font-weight:700;
+color:#D93025;
+
 }
 
 /* ---------- DETAILS ---------- */
 
 .row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 0;
-    border-bottom:1px solid #ececec;
-    gap:20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
+border-bottom:1px solid #EEF1F4;
+gap:20px;
+
 }
 
 .row span{
-    color:#555;
-    font-size:17px;
+
+font-size:16px;
+font-weight:500;
+color:#5B6470;
+
 }
 
 .row strong{
-    color:#111;
-    font-size:18px;
-    text-align:right;
+
+font-size:18px;
+font-weight:600;
+color:#111827;
+text-align:right;
+
 }
 
-/* ---------- REPORT NUMBER ---------- */
+/* ---------- REPORT BOX ---------- */
 
 .report-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
+
+display:flex;
+align-items:center;
+gap:10px;
+
 }
 
 .report-box button{
-    background:#083c74;
-    color:white;
-    border:none;
-    border-radius:8px;
-    padding:7px 12px;
-    cursor:pointer;
+
+padding:7px 12px;
+border:none;
+border-radius:8px;
+background:#083C74;
+color:white;
+font-size:13px;
+font-weight:600;
+cursor:pointer;
+
 }
 
 /* ---------- DOWNLOAD ---------- */
 
 .download{
-    display:block;
-    margin-top:28px;
-    background:#0d8b6f;
-    color:white;
-    text-align:center;
-    text-decoration:none;
-    font-size:19px;
-    font-weight:bold;
-    padding:18px;
-    border-radius:14px;
-    transition:.25s;
+
+display:block;
+margin-top:30px;
+height:62px;
+line-height:62px;
+text-align:center;
+background:#0D8B6F;
+border-radius:16px;
+color:white;
+font-size:18px;
+font-weight:600;
+text-decoration:none;
+transition:.25s;
+
 }
 
 .download:hover{
-    background:#09715c;
-    transform:translateY(-2px);
+
+background:#0A725B;
+
 }
 
 /* ---------- FOOTER ---------- */
 
 .footer{
-    margin-top:30px;
-    text-align:center;
-    color:#666;
-    font-size:13px;
+
+margin-top:34px;
+text-align:center;
+font-size:13px;
+line-height:1.6;
+color:#6B7280;
+
 }
 
 /* ---------- MOBILE ---------- */
 
-@media(max-width:700px){
+@media(max-width:768px){
 
 .container{
-    padding:25px;
+
+padding:28px 22px;
+margin:12px;
+
+}
+
+.logo{
+
+width:60px;
+height:60px;
+
 }
 
 .logo-section h1{
-    font-size:36px;
+
+font-size:40px;
+
 }
 
 .subtitle{
-    font-size:18px;
+
+font-size:17px;
+
 }
 
 .search{
-    flex-direction:column;
+
+flex-direction:column;
+
 }
 
 .search button{
-    width:100%;
+
+width:100%;
+
 }
 
 .row{
-    flex-direction:column;
-    align-items:flex-start;
+
+flex-direction:column;
+align-items:flex-start;
+gap:6px;
+
 }
 
 .row strong{
-    text-align:left;
+
+text-align:left;
+
 }
 
 .verified-header{
-    flex-direction:column;
-    text-align:center;
+
+flex-direction:column;
+text-align:center;
+
 }
 
 }
@@ -287,43 +392,52 @@ body{
 
 <div class="container">
 
-    <div class="logo-section">
+<div class="logo-section">
 
-        <img src="../logo.jpg"
-             alt="STRUCTURA LABS Logo"
-             class="logo">
+<img src="../logo.jpg"
+     alt="STRUCTURA LABS Logo"
+     class="logo">
 
-        <h1>STRUCTURA LABS</h1>
+<h1>STRUCTURA LABS</h1>
 
-        <div class="subtitle">
-            Results You Can Build On
-        </div>
+<div class="subtitle">
 
-        <div class="verify-title">
-            Official Report Verification Portal
-        </div>
+Results You Can Build On
 
-    </div>
+</div>
 
-    <div class="search">
+<div class="verify-title">
 
-        <input
-            id="searchInput"
-            placeholder="Enter Report Number (e.g. STL-26-000123)">
+Official Report Verification Portal
 
-        <button onclick="verifyReport()">
-            Verify
-        </button>
+</div>
 
-    </div>
+</div>
 
-    <div id="result"></div>
+<div class="search">
 
-    <div class="footer">
-        STRUCTURA INFRA TESTING LABS PRIVATE LIMITED
-        <br>
-        Ambernath • Maharashtra
-    </div>
+<input id="searchInput"
+placeholder="Enter Report Number (e.g. STL-26-000123)">
+
+<button onclick="verifyReport()">
+
+Verify
+
+</button>
+
+</div>
+
+<div id="result"></div>
+
+<div class="footer">
+
+STRUCTURA INFRA TESTING LABS PRIVATE LIMITED
+
+<br>
+
+Ambernath • Maharashtra
+
+</div>
 
 </div>
 
