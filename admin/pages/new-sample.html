@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STRUCTURA LABS | New Sample</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--navy:#083C74;
+--green:#0C8A73;
+--bg:#EEF2F6;
+--border:#D8DEE8;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:var(--bg);
+padding:30px;
+}
+
+.container{
+max-width:1050px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+h1{
+font-size:40px;
+color:var(--navy);
+}
+
+.subtitle{
+color:#64748B;
+margin-top:8px;
+}
+
+.section-title{
+font-size:20px;
+color:var(--navy);
+margin:35px 0 18px;
+padding-bottom:10px;
+border-bottom:1px solid #E5E7EB;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+}
+
+.full{
+grid-column:1/-1;
+}
+
+label{
+display:block;
+font-weight:600;
+margin-bottom:8px;
+font-size:15px;
+}
+
+input,select,textarea{
+width:100%;
+padding:15px;
+border:1px solid var(--border);
+border-radius:14px;
+font-family:'Montserrat',sans-serif;
+font-size:15px;
+}
+
+input[readonly]{
+background:#F7F9FC;
+font-weight:600;
+color:var(--navy);
+}
+
+textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.actions{
+display:flex;
+gap:16px;
+margin-top:35px;
+}
+
+.primary{
+flex:1;
+padding:18px;
+background:var(--navy);
+color:white;
+border:none;
+border-radius:16px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+}
+
+.secondary{
+padding:18px 28px;
+background:white;
+border:1px solid var(--border);
+border-radius:16px;
+font-weight:600;
+cursor:pointer;
+}
+
+.primary:hover{
+background:#062D5A;
+}
+
+.secondary:hover{
+background:#F7F9FC;
+}
+
+@media(max-width:768px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.container{
+padding:24px;
+}
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+h1{
+font-size:32px;
+}
+
+.actions{
+flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div>
+
+<h1>New Sample</h1>
+
+<div class="subtitle">
+Register a sample before testing begins.
+</div>
+
+</div>
+
+</div>
+
+<!-- SAMPLE IDENTIFICATION -->
+
+<div class="section-title">Sample Identification</div>
+
+<div class="grid">
+
+<div>
+
+<label>Sample ID</label>
+
+<input id="sampleId" readonly>
+
+</div>
+
+<div>
+
+<label>Received Date</label>
+
+<input id="receivedDate" readonly>
+
+</div>
+
+</div>
+
+<!-- CLIENT DETAILS -->
+
+<div class="section-title">Client Details</div>
+
+<div class="grid">
+
+<div class="full">
+
+<label>Client Name</label>
+
+<input placeholder="Search existing or enter new client">
+
+</div>
+
+<div>
+
+<label>Project Name</label>
+
+<input placeholder="Example: RCC Foundation">
+
+</div>
+
+<div>
+
+<label>Site Location</label>
+
+<input placeholder="Example: Ambernath MIDC">
+
+</div>
+
+<div>
+
+<label>Contact Person</label>
+
+<input placeholder="Enter contact person">
+
+</div>
+
+<div>
+
+<label>Mobile Number</label>
+
+<input placeholder="9876543210">
+
+</div>
+
+</div>
+
+<!-- SAMPLE DETAILS -->
+
+<div class="section-title">Sample Details</div>
+
+<div class="grid">
+
+<div>
+
+<label>Material Category</label>
+
+<select id="material" onchange="updateTests()">
+
+<option value="">Select Material</option>
+<option value="Concrete">Concrete</option>
+<option value="Cement">Cement</option>
+<option value="Fine Aggregate">Fine Aggregate</option>
+<option value="Coarse Aggregate">Coarse Aggregate</option>
+<option value="Soil">Soil</option>
+<option value="Bitumen">Bitumen</option>
+<option value="Construction Chemicals">Construction Chemicals</option>
+<option value="Water">Water</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Test Requested</label>
+
+<input
+list="testSuggestions"
+id="testType"
+placeholder="Select or type test">
+
+<datalist id="testSuggestions"></datalist>
+
+</div>
+
+<div>
+
+<label>Grade / Specification</label>
+
+<input placeholder="Example: M30">
+
+</div>
+
+<div>
+
+<label>Quantity</label>
+
+<input placeholder="Example: 3 Cubes">
+
+</div>
+
+<div>
+
+<label>Sample Condition</label>
+
+<select>
+
+<option>Good</option>
+<option>Damaged</option>
+<option>Wet</option>
+<option>Dry</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Priority</label>
+
+<select>
+
+<option>Normal</option>
+<option>Urgent</option>
+
+</select>
+
+</div>
+
+<div class="full">
+
+<label>Remarks</label>
+
+<textarea placeholder="Any special instructions..."></textarea>
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="secondary" onclick="window.history.back()">
+Cancel
+</button>
+
+<button class="primary">
+Register Sample
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+// ---------- Financial Year Sample ID ----------
+
+function getFinancialYear(){
+
+const today=new Date();
+const year=today.getFullYear();
+const month=today.getMonth();
+
+let start,end;
+
+if(month>=3){
+
+start=year;
+end=year+1;
+
+}else{
+
+start=year-1;
+end=year;
+
+}
+
+return `${String(start).slice(-2)}-${String(end).slice(-2)}`;
+
+}
+
+let sequence=1;
+
+function generateSampleID(){
+
+const fy=getFinancialYear();
+const serial=String(sequence).padStart(6,"0");
+
+document.getElementById("sampleId").value=
+`SMID/${fy}/${serial}`;
+
+document.getElementById("receivedDate").value=
+new Date().toLocaleDateString("en-GB");
+
+}
+
+generateSampleID();
+
+
+// ---------- Dynamic Test Suggestions ----------
+
+const tests={
+
+"Concrete":[
+"Cube Compressive Strength",
+"Slump Test",
+"Mix Design",
+"Density",
+"Flexural Strength",
+"Split Tensile Strength",
+"Rapid Chloride Permeability (RCPT)",
+"Water Permeability"
+],
+
+"Cement":[
+"Fineness",
+"Standard Consistency",
+"Initial Setting Time",
+"Final Setting Time",
+"Soundness",
+"Compressive Strength"
+],
+
+"Fine Aggregate":[
+"Sieve Analysis",
+"Silt Content",
+"Specific Gravity",
+"Water Absorption",
+"Bulk Density"
+],
+
+"Coarse Aggregate":[
+"Sieve Analysis",
+"Specific Gravity",
+"Water Absorption",
+"Crushing Value",
+"Impact Value",
+"Flakiness Index",
+"Elongation Index",
+"Los Angeles Abrasion"
+],
+
+"Soil":[
+"Moisture Content",
+"Sieve Analysis",
+"Atterberg Limits",
+"Proctor Test",
+"CBR Test",
+"Field Density"
+],
+
+"Bitumen":[
+"Penetration",
+"Softening Point",
+"Ductility",
+"Viscosity"
+],
+
+"Construction Chemicals":[
+"Adhesion",
+"Flow",
+"Compressive Strength"
+],
+
+"Water":[
+"pH",
+"TDS",
+"Chloride",
+"Sulphate"
+]
+
+};
+
+function updateTests(){
+
+const material=document.getElementById("material").value;
+const datalist=document.getElementById("testSuggestions");
+const input=document.getElementById("testType");
+
+datalist.innerHTML="";
+input.value="";
+
+if(!tests[material]) return;
+
+tests[material].forEach(test=>{
+
+const option=document.createElement("option");
+option.value=test;
+datalist.appendChild(option);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
