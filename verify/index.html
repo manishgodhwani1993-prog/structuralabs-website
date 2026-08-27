@@ -4,94 +4,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>STRUCTURA LABS | Report Verification</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-margin:0;
-font-family:Montserrat,bold;
-background:#f4f7fb;
+    font-family:Arial,sans-serif;
+    background:#eef1f5;
+    min-height:100vh;
+    padding:30px 15px;
 }
 
 .container{
-max-width:700px;
-margin:50px auto;
-background:white;
-padding:30px;
-border-radius:16px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    max-width:950px;
+    margin:auto;
+    background:#fff;
+    border-radius:22px;
+    padding:35px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
-h1{
-color:#083c74;
-text-align:center;
-margin:0;
+/* ---------- HEADER ---------- */
+
+.logo-section{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.logo{
+    width:95px;
+    height:95px;
+    object-fit:contain;
+    border-radius:50%;
+    background:white;
+    padding:8px;
+    box-shadow:0 4px 14px rgba(0,0,0,.12);
+    margin-bottom:18px;
+}
+
+.logo-section h1{
+    color:#083c74;
+    font-size:56px;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
 .subtitle{
-text-align:center;
-color:#0d8b6f;
-margin:10px 0 30px;
+    color:#0d8b6f;
+    font-size:22px;
+    margin-top:10px;
+}
+
+.verify-title{
+    margin-top:12px;
+    color:#666;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* ---------- SEARCH ---------- */
+
+.search{
+    display:flex;
+    gap:12px;
+    margin-bottom:35px;
+}
+
+.search input{
+    flex:1;
+    padding:18px;
+    font-size:20px;
+    border-radius:14px;
+    border:1px solid #cfd5db;
+    outline:none;
+}
+
+.search input:focus{
+    border-color:#083c74;
+    box-shadow:0 0 0 3px rgba(8,60,116,.12);
+}
+
+.search button{
+    padding:18px 28px;
+    background:#083c74;
+    color:white;
+    border:none;
+    border-radius:14px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.search button:hover{
+    background:#062e5a;
+}
+
+/* ---------- RESULT CARD ---------- */
+
+.card{
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:28px;
+    animation:fade .35s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ---------- VERIFIED ---------- */
+
+.verified-header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.shield{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:#0d8b6f;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.verified-header h2{
+    color:#0d8b6f;
+    font-size:24px;
+}
+
+.verified-header p{
+    color:#666;
+    margin-top:4px;
+    font-size:14px;
+}
+
+/* ---------- NOT FOUND ---------- */
+
+.red{
+    color:#d93025;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* ---------- DETAILS ---------- */
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #ececec;
+    gap:20px;
+}
+
+.row span{
+    color:#555;
+    font-size:17px;
+}
+
+.row strong{
+    color:#111;
+    font-size:18px;
+    text-align:right;
+}
+
+/* ---------- REPORT NUMBER ---------- */
+
+.report-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.report-box button{
+    background:#083c74;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:7px 12px;
+    cursor:pointer;
+}
+
+/* ---------- DOWNLOAD ---------- */
+
+.download{
+    display:block;
+    margin-top:28px;
+    background:#0d8b6f;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    font-size:19px;
+    font-weight:bold;
+    padding:18px;
+    border-radius:14px;
+    transition:.25s;
+}
+
+.download:hover{
+    background:#09715c;
+    transform:translateY(-2px);
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#666;
+    font-size:13px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:700px){
+
+.container{
+    padding:25px;
+}
+
+.logo-section h1{
+    font-size:36px;
+}
+
+.subtitle{
+    font-size:18px;
 }
 
 .search{
-display:flex;
-gap:10px;
+    flex-direction:column;
 }
 
-input{
-flex:1;
-padding:14px;
-border:1px solid #ccc;
-border-radius:10px;
-font-size:16px;
-}
-
-button{
-padding:14px 20px;
-border:none;
-border-radius:10px;
-background:#083c74;
-color:white;
-cursor:pointer;
-}
-
-.card{
-margin-top:30px;
-padding:20px;
-border:1px solid #ddd;
-border-radius:12px;
-}
-
-.green{
-color:#0d8b6f;
-font-size:22px;
-font-weight:bold;
-}
-
-.red{
-color:#d93025;
-font-size:22px;
-font-weight:bold;
+.search button{
+    width:100%;
 }
 
 .row{
-display:flex;
-justify-content:space-between;
-padding:8px 0;
-border-bottom:1px solid #eee;
+    flex-direction:column;
+    align-items:flex-start;
 }
 
-.download{
-display:block;
-margin-top:20px;
-text-align:center;
-background:#0d8b6f;
-color:white;
-text-decoration:none;
-padding:12px;
-border-radius:8px;
+.row strong{
+    text-align:left;
 }
+
+.verified-header{
+    flex-direction:column;
+    text-align:center;
+}
+
+}
+
 </style>
 
 </head>
@@ -100,24 +287,43 @@ border-radius:8px;
 
 <div class="container">
 
-<h1>STRUCTURA LABS</h1>
+    <div class="logo-section">
 
-<div class="subtitle">
-Results You Can Build On
-</div>
+        <img src="../logo.jpg"
+             alt="STRUCTURA LABS Logo"
+             class="logo">
 
-<div class="search">
+        <h1>STRUCTURA LABS</h1>
 
-<input id="searchInput"
-placeholder="Enter Report Number">
+        <div class="subtitle">
+            Results You Can Build On
+        </div>
 
-<button onclick="verifyReport()">
-Verify
-</button>
+        <div class="verify-title">
+            Official Report Verification Portal
+        </div>
 
-</div>
+    </div>
 
-<div id="result"></div>
+    <div class="search">
+
+        <input
+            id="searchInput"
+            placeholder="Enter Report Number (e.g. STL-26-000123)">
+
+        <button onclick="verifyReport()">
+            Verify
+        </button>
+
+    </div>
+
+    <div id="result"></div>
+
+    <div class="footer">
+        STRUCTURA INFRA TESTING LABS PRIVATE LIMITED
+        <br>
+        Ambernath • Maharashtra
+    </div>
 
 </div>
 
