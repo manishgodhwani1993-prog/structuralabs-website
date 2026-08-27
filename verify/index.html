@@ -2,229 +2,293 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Verify Test Report | STRUCTURA LABS</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-background:#eef3f8;
-padding:40px 20px;
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #eef3f8;
+    color: #111827;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
-.container{
-max-width:1200px;
-margin:auto;
-background:#fff;
-border-radius:30px;
-padding:50px;
-box-shadow:0 10px 35px rgba(0,0,0,.08);
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 55px 60px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
 }
 
-.logo{
-display:block;
-margin:auto;
-width:220px;
-margin-bottom:25px;
+/* LOGO */
+
+.logo {
+    display: block;
+    width: 220px;
+    max-width: 70%;
+    height: auto;
+    margin: 0 auto 35px auto;
 }
 
-h1{
-text-align:center;
-color:#0B4A92;
-font-size:58px;
-font-weight:800;
-margin-bottom:12px;
+/* HEADING */
+
+h1 {
+    text-align: center;
+    color: #0b478b;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
 }
 
-.subtitle{
-text-align:center;
-font-size:18px;
-color:#64748B;
-margin-bottom:35px;
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 19px;
+    margin-bottom: 40px;
 }
 
-.search{
-display:flex;
-gap:18px;
-margin-bottom:35px;
-flex-wrap:wrap;
+/* SEARCH */
+
+.search-area {
+    display: flex;
+    gap: 18px;
+    width: 100%;
+    align-items: stretch;
 }
 
-.search input{
-flex:1;
-min-width:250px;
-padding:20px 24px;
-font-size:20px;
-border:1px solid #d5dee9;
-border-radius:18px;
-outline:none;
+.search-area input {
+    flex: 1;
+    min-width: 0;
+    height: 70px;
+    border: 1px solid #d5deea;
+    border-radius: 18px;
+    padding: 0 25px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 19px;
+    color: #111827;
+    outline: none;
 }
 
-.btn{
-border:none;
-cursor:pointer;
-padding:20px 28px;
-border-radius:18px;
-font-size:20px;
-font-weight:700;
-transition:.25s;
+.search-area input:focus {
+    border-color: #0b478b;
+    box-shadow: 0 0 0 3px rgba(11,71,139,0.10);
 }
 
-.verify-btn{
-background:#0B4A92;
-color:white;
+.verify-button {
+    height: 70px;
+    padding: 0 42px;
+    border: none;
+    border-radius: 18px;
+    background: #0b478b;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-.verify-btn:hover{
-background:#08366d;
+.verify-button:hover {
+    background: #08366b;
 }
 
-.scan-btn{
-background:#0E8B7E;
-color:white;
+/* LOADING */
+
+.loading {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    color: #64748b;
+    font-weight: 600;
 }
 
-.scan-btn:hover{
-background:#0a6c62;
+/* ERROR */
+
+.error {
+    display: none;
+    margin-top: 30px;
+    padding: 18px 22px;
+    border-radius: 15px;
+    background: #fee2e2;
+    color: #991b1b;
+    text-align: center;
+    font-weight: 600;
 }
 
-#qr-reader{
-margin:25px auto;
-max-width:360px;
-display:none;
+/* RESULT */
+
+.result {
+    display: none;
+    margin-top: 45px;
 }
 
-.result{
-margin-top:35px;
-display:none;
+.verified-badge {
+    display: inline-block;
+    background: #16a34a;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
 
-.badge{
-display:inline-block;
-background:#16A34A;
-color:white;
-padding:10px 22px;
-border-radius:999px;
-font-weight:700;
-margin-bottom:25px;
+.report-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 50px;
 }
 
-.report{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
-align-items:start;
+/* DETAILS */
+
+.details {
+    width: 100%;
 }
 
-.qrbox{
-text-align:center;
+.detail-row {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.qrbox img{
-width:220px;
-border:1px solid #d9d9d9;
-border-radius:16px;
-padding:10px;
-background:white;
+.detail-label {
+    color: #385676;
+    font-weight: 700;
 }
 
-.details{
-display:flex;
-flex-direction:column;
+.detail-value {
+    color: #111827;
+    word-break: break-word;
 }
 
-.row{
-display:grid;
-grid-template-columns:220px 1fr;
-padding:18px 0;
-border-bottom:1px solid #E5E7EB;
+/* QR */
+
+.qr-area {
+    text-align: center;
 }
 
-.label{
-font-weight:700;
-color:#334E68;
+.qr-area img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    padding: 10px;
+    background: white;
+    border: 1px solid #dbe3ec;
+    border-radius: 16px;
 }
 
-.value{
-color:#111827;
+.qr-caption {
+    margin-top: 12px;
+    color: #64748b;
+    font-size: 13px;
 }
 
-.download{
-display:inline-block;
-margin-top:35px;
-padding:18px 26px;
-background:#0B4A92;
-color:white;
-text-decoration:none;
-font-weight:700;
-border-radius:16px;
+/* DOWNLOAD */
+
+.download-button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 17px 25px;
+    background: #0b478b;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
 }
 
-.download:hover{
-background:#08366d;
+.download-button:hover {
+    background: #08366b;
 }
 
-.error{
-display:none;
-margin-top:25px;
-padding:18px;
-border-radius:14px;
-background:#FEE2E2;
-color:#991B1B;
-font-weight:600;
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    margin-top: 45px;
+    color: #94a3b8;
+    font-size: 13px;
 }
 
-@media(max-width:768px){
+/* MOBILE */
 
-.container{
-padding:28px;
-}
+@media (max-width: 800px) {
 
-.logo{
-width:170px;
-}
+    body {
+        padding: 15px;
+    }
 
-h1{
-font-size:42px;
-}
+    .container {
+        margin: 15px auto;
+        padding: 35px 22px;
+        border-radius: 24px;
+    }
 
-.subtitle{
-font-size:17px;
-}
+    .logo {
+        width: 175px;
+        margin-bottom: 30px;
+    }
 
-.search{
-flex-direction:column;
-}
+    h1 {
+        font-size: 38px;
+    }
 
-.search input,
-.btn{
-width:100%;
-font-size:18px;
-}
+    .subtitle {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
 
-.report{
-grid-template-columns:1fr;
-}
+    .search-area {
+        flex-direction: column;
+    }
 
-.row{
-grid-template-columns:1fr;
-gap:8px;
-}
+    .search-area input {
+        width: 100%;
+        height: 62px;
+        font-size: 16px;
+    }
 
-.qrbox img{
-width:200px;
-}
+    .verify-button {
+        width: 100%;
+        height: 62px;
+    }
 
+    .report-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .qr-area {
+        order: -1;
+    }
+
+    .detail-row {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .download-button {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 </style>
@@ -234,214 +298,469 @@ width:200px;
 
 <div class="container">
 
-<img src="../logo.jpg" class="logo" alt="STRUCTURA LABS">
+    <!-- STRUCTURA LOGO -->
+    <img
+        src="/logo.jpg"
+        class="logo"
+        alt="STRUCTURA LABS"
+    >
 
-<h1>Verify Test Report</h1>
+    <h1>Verify Test Report</h1>
 
-<p class="subtitle">
-Enter the official Report Number or scan the QR Code.
-</p>
+    <p class="subtitle">
+        Enter the official Report Number to verify the authenticity of a STRUCTURA LABS report.
+    </p>
 
-<div class="search">
+    <!-- SEARCH -->
+    <div class="search-area">
 
-<input
-id="reportInput"
-placeholder="Example: SITL/26-27/000001">
+        <input
+            type="text"
+            id="reportInput"
+            placeholder="Example: SITL/26-27/000001"
+            autocomplete="off"
+        >
 
-<button class="btn verify-btn" onclick="verifyReport()">
-Verify
-</button>
+        <button
+            class="verify-button"
+            onclick="verifyReport()"
+        >
+            Verify
+        </button>
 
-<button class="btn scan-btn" onclick="toggleScanner()">
-📷 Scan QR
-</button>
+    </div>
+
+    <!-- LOADING -->
+    <div id="loading" class="loading">
+        Verifying report...
+    </div>
+
+    <!-- ERROR -->
+    <div id="error" class="error"></div>
+
+    <!-- RESULT -->
+    <div id="result" class="result">
+
+        <div class="verified-badge">
+            ✓ VERIFIED REPORT
+        </div>
+
+        <div class="report-layout">
+
+            <!-- REPORT DETAILS -->
+            <div class="details">
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Report Number
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="report_number">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Sample ID
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="sample_id">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Client Name
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="client_name">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Material Category
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="material_category">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Test Name
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="test_name">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        IS Code
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="is_code">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Issue Date
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="issue_date">
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        Status
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="status">
+                    </div>
+                </div>
+
+                <a
+                    id="downloadButton"
+                    class="download-button"
+                    href="#"
+                    target="_blank"
+                >
+                    Download Original Signed PDF
+                </a>
+
+            </div>
+
+            <!-- QR -->
+            <div class="qr-area">
+
+                <img
+                    id="qrImage"
+                    alt="Report Verification QR Code"
+                >
+
+                <div class="qr-caption">
+                    Verification QR
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        STRUCTURA LABS · Results You Can Build On
+    </div>
 
 </div>
 
-<div id="qr-reader"></div>
-
-<div id="error" class="error"></div>
-
-<div id="result" class="result">
-
-<div class="badge">
-✓ VERIFIED REPORT
-</div>
-
-<div class="report">
-
-<div class="details">
-
-<div class="row">
-<div class="label">Report Number</div>
-<div class="value" id="report_number"></div>
-</div>
-
-<div class="row">
-<div class="label">Sample ID</div>
-<div class="value" id="sample_id"></div>
-</div>
-
-<div class="row">
-<div class="label">Client Name</div>
-<div class="value" id="client_name"></div>
-</div>
-
-<div class="row">
-<div class="label">Material Category</div>
-<div class="value" id="material_category"></div>
-</div>
-
-<div class="row">
-<div class="label">Test Name</div>
-<div class="value" id="test_name"></div>
-</div>
-
-<div class="row">
-<div class="label">IS Code</div>
-<div class="value" id="is_code"></div>
-</div>
-
-<div class="row">
-<div class="label">Issue Date</div>
-<div class="value" id="issue_date"></div>
-</div>
-
-<div class="row">
-<div class="label">Status</div>
-<div class="value" id="status"></div>
-</div>
-
-<a id="downloadBtn" class="download" target="_blank">
-Download Original Signed PDF
-</a>
-
-</div>
-
-<div class="qrbox">
-
-<img id="qrImage" alt="Verification QR">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="https://unpkg.com/html5-qrcode"></script>
 
 <script>
 
-const API="https://structura-api.manishgodhwani1993.workers.dev";
+/*
+=========================================================
+STRUCTURA API
+=========================================================
+*/
 
-const params=new URLSearchParams(window.location.search);
-const autoReport=params.get("report");
+const API =
+    "https://structura-api.manishgodhwani1993.workers.dev";
 
-if(autoReport){
-document.getElementById("reportInput").value=autoReport;
-window.onload=()=>verifyReport();
+
+/*
+=========================================================
+GET REPORT NUMBER FROM URL
+=========================================================
+
+QR will contain:
+
+https://structuralabs.in/verify/?report=SITL/26-27/000002
+
+The page automatically reads "report".
+*/
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const reportFromQR =
+    params.get("report");
+
+
+/*
+=========================================================
+AUTOMATIC VERIFICATION
+=========================================================
+*/
+
+window.addEventListener("DOMContentLoaded", function() {
+
+    if (reportFromQR) {
+
+        document.getElementById("reportInput").value =
+            reportFromQR;
+
+        verifyReport();
+
+    }
+
+});
+
+
+/*
+=========================================================
+ENTER KEY
+=========================================================
+*/
+
+document
+    .getElementById("reportInput")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            verifyReport();
+        }
+
+    });
+
+
+/*
+=========================================================
+VERIFY REPORT
+=========================================================
+*/
+
+async function verifyReport() {
+
+    const input =
+        document.getElementById("reportInput");
+
+    const reportNumber =
+        input.value.trim();
+
+    const result =
+        document.getElementById("result");
+
+    const error =
+        document.getElementById("error");
+
+    const loading =
+        document.getElementById("loading");
+
+
+    /* Reset */
+
+    result.style.display = "none";
+    error.style.display = "none";
+    loading.style.display = "none";
+
+
+    if (!reportNumber) {
+
+        showError(
+            "Please enter a Report Number."
+        );
+
+        return;
+
+    }
+
+
+    loading.style.display = "block";
+
+
+    try {
+
+        /*
+        Encode the report number safely.
+
+        Example:
+
+        SITL/26-27/000002
+
+        becomes a safe API URL.
+        */
+
+        const encoded =
+            encodeURIComponent(reportNumber);
+
+
+        const response =
+            await fetch(
+                `${API}/verify/${encoded}`
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Verification server returned an error."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        loading.style.display = "none";
+
+
+        /*
+        REPORT NOT FOUND
+        */
+
+        if (!data.found) {
+
+            showError(
+                "Report not found. Please check the Report Number and try again."
+            );
+
+            return;
+
+        }
+
+
+        /*
+        REPORT FOUND
+        */
+
+        displayReport(data.report);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        loading.style.display = "none";
+
+        showError(
+            "Unable to connect to the STRUCTURA verification server. Please try again."
+        );
+
+    }
+
 }
 
-async function verifyReport(){
 
-const report=document.getElementById("reportInput").value.trim();
+/*
+=========================================================
+DISPLAY REPORT
+=========================================================
+*/
 
-document.getElementById("error").style.display="none";
-document.getElementById("result").style.display="none";
+function displayReport(report) {
 
-if(!report){
-showError("Please enter Report Number.");
-return;
+    document.getElementById("report_number").textContent =
+        report.report_number || "-";
+
+
+    document.getElementById("sample_id").textContent =
+        report.sample_id || "-";
+
+
+    document.getElementById("client_name").textContent =
+        report.client_name || "-";
+
+
+    document.getElementById("material_category").textContent =
+        report.material_category || "-";
+
+
+    document.getElementById("test_name").textContent =
+        report.test_name || "-";
+
+
+    document.getElementById("is_code").textContent =
+        report.is_code || "-";
+
+
+    document.getElementById("issue_date").textContent =
+        report.issue_date || "-";
+
+
+    document.getElementById("status").textContent =
+        report.status || "Verified";
+
+
+    /*
+    PDF DOWNLOAD
+    */
+
+    document.getElementById("downloadButton").href =
+        `${API}/download/${encodeURIComponent(report.report_number)}`;
+
+
+    /*
+    QR DISPLAY
+
+    The QR displayed here points back to the
+    STRUCTURA verification page.
+    */
+
+    const verifyURL =
+        `https://structuralabs.in/verify/?report=${encodeURIComponent(report.report_number)}`;
+
+
+    document.getElementById("qrImage").src =
+        `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(verifyURL)}`;
+
+
+    /*
+    SHOW RESULT
+    */
+
+    document.getElementById("result").style.display =
+        "block";
+
+
+    /*
+    Scroll result into view on mobile
+    */
+
+    document.getElementById("result").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
 }
 
-try{
 
-const res=await fetch(`${API}/verify/${encodeURIComponent(report)}`);
-const data=await res.json();
+/*
+=========================================================
+ERROR MESSAGE
+=========================================================
+*/
 
-if(!data.found){
-showError("Report not found.");
-return;
-}
+function showError(message) {
 
-const r=data.report;
+    const error =
+        document.getElementById("error");
 
-document.getElementById("report_number").textContent=r.report_number;
-document.getElementById("sample_id").textContent=r.sample_id;
-document.getElementById("client_name").textContent=r.client_name;
-document.getElementById("material_category").textContent=r.material_category;
-document.getElementById("test_name").textContent=r.test_name;
-document.getElementById("is_code").textContent=r.is_code||"-";
-document.getElementById("issue_date").textContent=r.issue_date;
-document.getElementById("status").textContent=r.status;
+    error.textContent =
+        message;
 
-document.getElementById("downloadBtn").href=
-`${API}/download/${encodeURIComponent(r.report_number)}`;
-
-document.getElementById("qrImage").src=
-`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(r.qr_url)}`;
-
-document.getElementById("result").style.display="block";
-
-}catch(e){
-
-showError("Unable to connect to verification server.");
-
-}
-
-}
-
-function showError(msg){
-
-const err=document.getElementById("error");
-err.textContent=msg;
-err.style.display="block";
-
-}
-
-let scanner;
-
-function toggleScanner(){
-
-const box=document.getElementById("qr-reader");
-
-if(box.style.display==="block"){
-
-box.style.display="none";
-
-if(scanner){
-scanner.stop().catch(()=>{});
-}
-
-return;
-
-}
-
-box.style.display="block";
-
-scanner=new Html5Qrcode("qr-reader");
-
-scanner.start(
-
-{facingMode:"environment"},
-
-{fps:10,qrbox:250},
-
-(decoded)=>{
-
-scanner.stop();
-
-box.style.display="none";
-
-window.location.href=decoded;
-
-},
-
-()=>{}
-
-);
+    error.style.display =
+        "block";
 
 }
 
