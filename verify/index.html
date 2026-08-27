@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Verify Test Report | STRUCTURA LABS</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -18,434 +14,434 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
 }
 
 body{
-font-family:'Montserrat',sans-serif;
 background:#eef3f8;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
+padding:40px 20px;
 }
 
-.card{
-background:white;
-width:100%;
-max-width:980px;
-padding:55px;
-border-radius:28px;
-box-shadow:0 20px 50px rgba(0,0,0,.08);
+.container{
+max-width:1200px;
+margin:auto;
+background:#fff;
+border-radius:30px;
+padding:50px;
+box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
 .logo{
-text-align:center;
-margin-bottom:20px;
-}
-
-.logo img{
-height:90px;
-width:auto;
 display:block;
 margin:auto;
+width:220px;
+margin-bottom:25px;
 }
 
 h1{
 text-align:center;
-font-size:54px;
+color:#0B4A92;
+font-size:58px;
 font-weight:800;
-color:#0d3f7f;
-margin-bottom:14px;
+margin-bottom:12px;
 }
 
 .subtitle{
 text-align:center;
-color:#64748b;
-font-size:19px;
-margin-bottom:40px;
+font-size:18px;
+color:#64748B;
+margin-bottom:35px;
 }
 
 .search{
 display:flex;
-gap:16px;
+gap:18px;
+margin-bottom:35px;
 flex-wrap:wrap;
-margin-bottom:30px;
 }
 
 .search input{
 flex:1;
-padding:20px;
-font-size:18px;
-border:1px solid #d8dee6;
-border-radius:16px;
+min-width:250px;
+padding:20px 24px;
+font-size:20px;
+border:1px solid #d5dee9;
+border-radius:18px;
 outline:none;
-font-family:inherit;
 }
 
-.search button{
-padding:20px 32px;
-background:#0d3f7f;
-color:white;
+.btn{
 border:none;
-border-radius:16px;
-font-size:17px;
-font-weight:700;
 cursor:pointer;
+padding:20px 28px;
+border-radius:18px;
+font-size:20px;
+font-weight:700;
 transition:.25s;
 }
 
-.search button:hover{
-background:#0a3366;
+.verify-btn{
+background:#0B4A92;
+color:white;
+}
+
+.verify-btn:hover{
+background:#08366d;
 }
 
 .scan-btn{
-background:#0f766e !important;
+background:#0E8B7E;
+color:white;
 }
 
 .scan-btn:hover{
-background:#115e59 !important;
+background:#0a6c62;
 }
 
-#scanner{
-display:none;
-width:100%;
-max-width:420px;
+#qr-reader{
 margin:25px auto;
-border-radius:18px;
-border:2px solid #d8dee6;
-background:black;
+max-width:360px;
+display:none;
 }
 
 .result{
-display:none;
 margin-top:35px;
-border-top:1px solid #e5e7eb;
-padding-top:30px;
+display:none;
 }
 
 .badge{
 display:inline-block;
-background:#16a34a;
+background:#16A34A;
 color:white;
-padding:9px 20px;
+padding:10px 22px;
 border-radius:999px;
-font-size:14px;
 font-weight:700;
-margin-bottom:24px;
+margin-bottom:25px;
 }
 
-.qr{
+.report{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+align-items:start;
+}
+
+.qrbox{
 text-align:center;
-margin-bottom:28px;
 }
 
-.qr img{
-width:180px;
-height:180px;
-padding:10px;
-border:1px solid #d8dee6;
+.qrbox img{
+width:220px;
+border:1px solid #d9d9d9;
 border-radius:16px;
+padding:10px;
 background:white;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
+.details{
+display:flex;
+flex-direction:column;
 }
 
-td{
-padding:14px 0;
-border-bottom:1px solid #edf2f7;
+.row{
+display:grid;
+grid-template-columns:220px 1fr;
+padding:18px 0;
+border-bottom:1px solid #E5E7EB;
 }
 
-td:first-child{
-width:40%;
+.label{
 font-weight:700;
-color:#475569;
+color:#334E68;
+}
+
+.value{
+color:#111827;
 }
 
 .download{
 display:inline-block;
-margin-top:30px;
-padding:16px 28px;
-background:#0d3f7f;
+margin-top:35px;
+padding:18px 26px;
+background:#0B4A92;
 color:white;
 text-decoration:none;
-border-radius:14px;
 font-weight:700;
-transition:.25s;
+border-radius:16px;
 }
 
 .download:hover{
-background:#0a3366;
+background:#08366d;
 }
 
-.notfound{
+.error{
 display:none;
-margin-top:20px;
+margin-top:25px;
 padding:18px;
-background:#fef2f2;
-color:#991b1b;
 border-radius:14px;
+background:#FEE2E2;
+color:#991B1B;
 font-weight:600;
 }
 
 @media(max-width:768px){
 
-.card{
-padding:35px 24px;
+.container{
+padding:28px;
 }
 
-.logo img{
-height:70px;
+.logo{
+width:170px;
 }
 
 h1{
-font-size:36px;
+font-size:42px;
 }
 
 .subtitle{
-font-size:16px;
+font-size:17px;
 }
 
 .search{
 flex-direction:column;
 }
 
-.search button{
+.search input,
+.btn{
 width:100%;
+font-size:18px;
 }
 
-td{
-display:block;
-border:none;
-padding:8px 0;
+.report{
+grid-template-columns:1fr;
 }
 
-td:first-child{
-padding-top:16px;
+.row{
+grid-template-columns:1fr;
+gap:8px;
+}
+
+.qrbox img{
+width:200px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<div class="logo">
-<img src="/logo.jpg" alt="STRUCTURA LABS Logo">
-</div>
+<img src="../logo.jpg" class="logo" alt="STRUCTURA LABS">
 
 <h1>Verify Test Report</h1>
 
-<div class="subtitle">
+<p class="subtitle">
 Enter the official Report Number or scan the QR Code.
-</div>
+</p>
 
 <div class="search">
 
-<input id="reportInput" placeholder="Example: SITL/26-27/000001">
+<input
+id="reportInput"
+placeholder="Example: SITL/26-27/000001">
 
-<button onclick="verifyReport()">
+<button class="btn verify-btn" onclick="verifyReport()">
 Verify
 </button>
 
-<button onclick="startScanner()" class="scan-btn">
+<button class="btn scan-btn" onclick="toggleScanner()">
 📷 Scan QR
 </button>
 
 </div>
 
-<video id="scanner" autoplay playsinline></video>
+<div id="qr-reader"></div>
 
-<div id="notfound" class="notfound">
-Report not found.
-</div>
+<div id="error" class="error"></div>
 
 <div id="result" class="result">
 
 <div class="badge">
-✔ VERIFIED REPORT
+✓ VERIFIED REPORT
 </div>
 
-<div class="qr">
-<img id="qrImage" src="" alt="Verification QR">
+<div class="report">
+
+<div class="details">
+
+<div class="row">
+<div class="label">Report Number</div>
+<div class="value" id="report_number"></div>
 </div>
 
-<table>
+<div class="row">
+<div class="label">Sample ID</div>
+<div class="value" id="sample_id"></div>
+</div>
 
-<tr><td>Report Number</td><td id="r_report"></td></tr>
+<div class="row">
+<div class="label">Client Name</div>
+<div class="value" id="client_name"></div>
+</div>
 
-<tr><td>Sample ID</td><td id="r_sample"></td></tr>
+<div class="row">
+<div class="label">Material Category</div>
+<div class="value" id="material_category"></div>
+</div>
 
-<tr><td>Client Name</td><td id="r_client"></td></tr>
+<div class="row">
+<div class="label">Test Name</div>
+<div class="value" id="test_name"></div>
+</div>
 
-<tr><td>Material Category</td><td id="r_material"></td></tr>
+<div class="row">
+<div class="label">IS Code</div>
+<div class="value" id="is_code"></div>
+</div>
 
-<tr><td>Test Name</td><td id="r_test"></td></tr>
+<div class="row">
+<div class="label">Issue Date</div>
+<div class="value" id="issue_date"></div>
+</div>
 
-<tr><td>IS Code</td><td id="r_is"></td></tr>
+<div class="row">
+<div class="label">Status</div>
+<div class="value" id="status"></div>
+</div>
 
-<tr><td>Issue Date</td><td id="r_issue"></td></tr>
-
-<tr><td>Status</td><td id="r_status"></td></tr>
-
-</table>
-
-<a id="pdfLink" class="download" target="_blank">
+<a id="downloadBtn" class="download" target="_blank">
 Download Original Signed PDF
 </a>
 
 </div>
 
+<div class="qrbox">
+
+<img id="qrImage" alt="Verification QR">
+
 </div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
 
 <script>
 
 const API="https://structura-api.manishgodhwani1993.workers.dev";
 
-async function verifyReport(reportNo){
+const params=new URLSearchParams(window.location.search);
+const autoReport=params.get("report");
 
-const report=reportNo || document.getElementById("reportInput").value.trim();
+if(autoReport){
+document.getElementById("reportInput").value=autoReport;
+window.onload=()=>verifyReport();
+}
 
-if(!report) return;
+async function verifyReport(){
 
+const report=document.getElementById("reportInput").value.trim();
+
+document.getElementById("error").style.display="none";
 document.getElementById("result").style.display="none";
-document.getElementById("notfound").style.display="none";
+
+if(!report){
+showError("Please enter Report Number.");
+return;
+}
 
 try{
 
-const response=await fetch(API+"/verify/"+encodeURIComponent(report));
-
-const data=await response.json();
+const res=await fetch(`${API}/verify/${encodeURIComponent(report)}`);
+const data=await res.json();
 
 if(!data.found){
-
-document.getElementById("notfound").style.display="block";
+showError("Report not found.");
 return;
-
 }
 
 const r=data.report;
 
-document.getElementById("result").style.display="block";
+document.getElementById("report_number").textContent=r.report_number;
+document.getElementById("sample_id").textContent=r.sample_id;
+document.getElementById("client_name").textContent=r.client_name;
+document.getElementById("material_category").textContent=r.material_category;
+document.getElementById("test_name").textContent=r.test_name;
+document.getElementById("is_code").textContent=r.is_code||"-";
+document.getElementById("issue_date").textContent=r.issue_date;
+document.getElementById("status").textContent=r.status;
 
-document.getElementById("r_report").textContent=r.report_number;
-document.getElementById("r_sample").textContent=r.sample_id;
-document.getElementById("r_client").textContent=r.client_name;
-document.getElementById("r_material").textContent=r.material_category;
-document.getElementById("r_test").textContent=r.test_name;
-document.getElementById("r_is").textContent=(r.is_code||"-")+" "+(r.is_part||"");
-document.getElementById("r_issue").textContent=r.issue_date;
-document.getElementById("r_status").textContent=r.status;
-
-document.getElementById("pdfLink").href=API+r.pdf_url;
+document.getElementById("downloadBtn").href=
+`${API}/download/${encodeURIComponent(r.report_number)}`;
 
 document.getElementById("qrImage").src=
-"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+
-encodeURIComponent("https://structuralabs.in/verify/"+r.report_number);
+`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(r.qr_url)}`;
+
+document.getElementById("result").style.display="block";
 
 }catch(e){
 
-document.getElementById("notfound").style.display="block";
+showError("Unable to connect to verification server.");
 
 }
 
 }
 
-async function startScanner(){
+function showError(msg){
 
-if(!navigator.mediaDevices){
-
-alert("Camera not supported on this device.");
-
-return;
+const err=document.getElementById("error");
+err.textContent=msg;
+err.style.display="block";
 
 }
 
-const video=document.getElementById("scanner");
+let scanner;
 
-try{
+function toggleScanner(){
 
-const stream=await navigator.mediaDevices.getUserMedia({
-video:{facingMode:"environment"}
-});
+const box=document.getElementById("qr-reader");
 
-video.srcObject=stream;
-video.style.display="block";
+if(box.style.display==="block"){
 
-if("BarcodeDetector" in window){
+box.style.display="none";
 
-const detector=new BarcodeDetector({
-formats:["qr_code"]
-});
-
-const scan=async()=>{
-
-const codes=await detector.detect(video);
-
-if(codes.length){
-
-stream.getTracks().forEach(track=>track.stop());
-
-video.style.display="none";
-
-const value=codes[0].rawValue;
-
-if(value.includes("/verify/")){
-
-window.location.href=value;
-
-}else{
-
-document.getElementById("reportInput").value=value;
-
-verifyReport(value);
-
+if(scanner){
+scanner.stop().catch(()=>{});
 }
 
 return;
 
 }
 
-requestAnimationFrame(scan);
+box.style.display="block";
 
-};
+scanner=new Html5Qrcode("qr-reader");
 
-scan();
+scanner.start(
 
-}else{
+{facingMode:"environment"},
 
-alert("QR scanning is not supported in this browser. Please use Chrome on Android or Safari on iPhone.");
+{fps:10,qrbox:250},
 
-stream.getTracks().forEach(track=>track.stop());
+(decoded)=>{
 
-video.style.display="none";
+scanner.stop();
 
-}
+box.style.display="none";
 
-}catch(err){
+window.location.href=decoded;
 
-alert("Unable to access camera.");
+},
 
-}
+()=>{}
 
-}
-
-const parts=window.location.pathname.split("/");
-
-if(parts.length>2){
-
-const report=decodeURIComponent(parts.slice(2).join("/"));
-
-document.getElementById("reportInput").value=report;
-
-verifyReport(report);
+);
 
 }
 
