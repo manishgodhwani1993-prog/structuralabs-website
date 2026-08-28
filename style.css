@@ -1,5 +1,5 @@
 /* ==========================================
-   STRUCTURA LABS - Premium Corporate Theme
+   STRUCTURA LABS | Premium Corporate Theme
    ========================================== */
 
 :root{
@@ -62,10 +62,9 @@ img{
 
 .logo img{
   height:62px;
-  width:auto;
 }
 
-/* ---------- MENU ---------- */
+/* ---------- NAVIGATION ---------- */
 
 .menu{
   display:flex;
@@ -121,12 +120,10 @@ img{
 .btn-primary{
   background:var(--primary);
   color:white;
-  box-shadow:0 10px 24px rgba(11,74,146,.25);
 }
 
 .btn-primary:hover{
   background:#08376E;
-  transform:translateY(-2px);
 }
 
 .btn-outline{
@@ -151,7 +148,7 @@ img{
   color:var(--primary);
 }
 
-/* ---------- MOBILE BUTTON ---------- */
+/* ---------- MOBILE MENU ---------- */
 
 .hamburger{
   display:none;
@@ -161,75 +158,39 @@ img{
   cursor:pointer;
 }
 
-/* ---------- HERO ---------- */
+/* ==========================================
+   HERO (NEW BANNER)
+   ========================================== */
 
 .hero{
   position:relative;
   height:100vh;
-  min-height:780px;
+  min-height:760px;
   display:flex;
   align-items:center;
+  justify-content:center;
   overflow:hidden;
-  padding-top:92px;
-  padding-bottom:120px;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(6,42,84,.96) 0%,
-      rgba(6,42,84,.90) 38%,
-      rgba(6,42,84,.50) 68%,
-      rgba(6,42,84,.08) 100%
-    ),
-    url("hero-lab.jpg");
+  background:url("hero-banner.jpg") center center/cover no-repeat;
+}
 
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+/* Hide hero text completely */
+
+.hero-content{
+  display:none;
 }
 
 .hero-grid{
-  display:grid;
+  display:block;
 }
 
-.hero-content{
-  position:relative;
-  z-index:5;
-  max-width:640px;
-}
-
-.hero h1{
-  font-size:78px;
-  font-weight:800;
-  line-height:1.02;
-  color:white;
-  margin-bottom:22px;
-}
-
-.hero h1 span{
-  color:var(--teal);
-}
-
-.accent-line{
-  width:90px;
-  height:4px;
-  background:var(--teal);
-  border-radius:3px;
-  margin-bottom:28px;
-}
-
-.hero p{
-  font-size:22px;
-  line-height:1.7;
-  color:#EAF3FF;
-  max-width:560px;
-}
-
-/* ---------- HERO FEATURE STRIP ---------- */
+/* ==========================================
+   FEATURE STRIP (BOTTOM OF HERO)
+   ========================================== */
 
 .hero-features{
   position:absolute;
-  bottom:35px;
+  bottom:32px;
   left:50%;
   transform:translateX(-50%);
   width:min(92%,1320px);
@@ -244,31 +205,34 @@ img{
 .feature-item{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
 }
 
 .feature-item span{
-  font-size:36px;
-  color:var(--teal);
+  font-size:38px;
+  color:white;
 }
 
 .feature-item strong{
   display:block;
   font-size:20px;
+  font-weight:700;
 }
 
 .feature-item div{
   font-size:16px;
-  line-height:1.3;
+  line-height:1.35;
 }
 
 .feature-divider{
   height:55px;
-  background:rgba(255,255,255,.20);
+  background:rgba(255,255,255,.22);
   margin:0 24px;
 }
 
-/* ---------- SECTIONS ---------- */
+/* ==========================================
+   GENERAL SECTIONS
+   ========================================== */
 
 .section{
   padding:100px 0;
@@ -293,7 +257,9 @@ img{
   line-height:1.8;
 }
 
-/* ---------- ABOUT ---------- */
+/* ==========================================
+   ABOUT
+   ========================================== */
 
 .about-grid{
   display:grid;
@@ -320,7 +286,9 @@ img{
   margin-bottom:18px;
 }
 
-/* ---------- SERVICES ---------- */
+/* ==========================================
+   SERVICES
+   ========================================== */
 
 .services-grid{
   display:grid;
@@ -357,7 +325,9 @@ img{
   line-height:1.7;
 }
 
-/* ---------- CONTACT ---------- */
+/* ==========================================
+   CONTACT
+   ========================================== */
 
 .contact-section{
   padding:100px 0;
@@ -383,7 +353,9 @@ img{
   color:#EAF3FF;
 }
 
-/* ---------- FOOTER ---------- */
+/* ==========================================
+   FOOTER
+   ========================================== */
 
 footer{
   background:#061C38;
@@ -398,7 +370,6 @@ footer{
 
 footer img{
   height:52px;
-  width:auto;
   margin-bottom:18px;
 }
 
@@ -415,7 +386,9 @@ footer a{
   margin-bottom:10px;
 }
 
-/* ---------- ANIMATIONS ---------- */
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
 
 .hidden{
   opacity:0;
@@ -428,7 +401,9 @@ footer a{
   transform:translateY(0);
 }
 
-/* ---------- MOBILE ---------- */
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 
 @media(max-width:1024px){
 
@@ -438,10 +413,6 @@ footer a{
 
   .services-grid{
     grid-template-columns:repeat(2,1fr);
-  }
-
-  .hero h1{
-    font-size:58px;
   }
 
 }
@@ -472,24 +443,16 @@ footer a{
 
   .hero{
     height:auto;
-    min-height:720px;
-    padding-top:130px;
-    padding-bottom:60px;
-  }
-
-  .hero h1{
-    font-size:46px;
-  }
-
-  .hero p{
-    font-size:18px;
+    min-height:520px;
+    padding-top:120px;
+    padding-bottom:40px;
   }
 
   .hero-features{
     position:static;
     transform:none;
     width:100%;
-    margin-top:50px;
+    margin-top:40px;
     padding:0 20px;
 
     grid-template-columns:1fr;
@@ -498,6 +461,10 @@ footer a{
 
   .feature-divider{
     display:none;
+  }
+
+  .feature-item{
+    justify-content:flex-start;
   }
 
   .services-grid,
