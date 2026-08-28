@@ -12,8 +12,13 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-font-family:Montserrat,sans-serif;
+font-family:'Montserrat',sans-serif;
+background:white;
 color:var(--text);
 overflow-x:hidden;
 }
@@ -23,11 +28,17 @@ width:min(92%,1280px);
 margin:auto;
 }
 
+img{
+display:block;
+max-width:100%;
+}
+
 /* HEADER */
 
 .header{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 background:rgba(255,255,255,.96);
 backdrop-filter:blur(12px);
@@ -36,7 +47,7 @@ z-index:1000;
 }
 
 .nav{
-height:86px;
+height:88px;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -48,23 +59,45 @@ height:58px;
 
 .menu{
 display:flex;
-gap:38px;
+gap:36px;
 }
 
 .menu a{
 text-decoration:none;
 font-weight:600;
 color:var(--blue);
+position:relative;
+}
+
+.menu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-8px;
+width:0;
+height:3px;
+background:var(--teal);
+transition:.3s;
+}
+
+.menu a:hover::after{
+width:100%;
 }
 
 .actions{
 display:flex;
 gap:10px;
+align-items:center;
 }
 
+/* BUTTONS */
+
 .btn{
-padding:12px 20px;
-border-radius:10px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 22px;
+border-radius:12px;
 text-decoration:none;
 font-weight:700;
 transition:.3s;
@@ -76,13 +109,24 @@ background:var(--blue);
 color:white;
 }
 
+.btn-primary:hover{
+background:#08376E;
+}
+
 .btn-outline{
 border:2px solid var(--blue);
+background:white;
 color:var(--blue);
+}
+
+.btn-outline:hover{
+background:var(--blue);
+color:white;
 }
 
 .btn-outline.white{
 border-color:white;
+background:transparent;
 color:white;
 }
 
@@ -91,14 +135,7 @@ background:white;
 color:var(--blue);
 }
 
-.btn-primary:hover{
-background:#08376E;
-}
-
-.btn-outline:hover{
-background:var(--blue);
-color:white;
-}
+/* MOBILE */
 
 .hamburger{
 display:none;
@@ -111,18 +148,18 @@ cursor:pointer;
 /* HERO */
 
 .hero{
-height:100vh;
-min-height:700px;
-background:url("hero-banner.jpg?v=2") center/cover no-repeat;
 position:relative;
+height:100vh;
+min-height:720px;
+background:url("hero-banner.jpg?v=10") center/cover no-repeat;
 }
 
 .hero-overlay{
 position:absolute;
 inset:0;
 background:linear-gradient(180deg,
-rgba(0,0,0,.05),
-rgba(0,0,0,.18));
+rgba(0,0,0,.04),
+rgba(0,0,0,.20));
 }
 
 .hero-features{
@@ -149,15 +186,16 @@ font-size:34px;
 
 .feature strong{
 display:block;
+font-size:18px;
 }
 
 .divider{
 width:1px;
-height:50px;
+height:48px;
 background:rgba(255,255,255,.35);
 }
 
-/* SECTIONS */
+/* GENERAL */
 
 .section{
 padding:90px 0;
@@ -169,17 +207,20 @@ background:var(--light);
 
 .center{
 text-align:center;
-font-size:40px;
+font-size:42px;
 color:var(--blue);
-margin-bottom:15px;
+margin-bottom:14px;
 }
 
 .center-sub{
 text-align:center;
-max-width:650px;
+max-width:700px;
 margin:0 auto 45px;
 color:#64748B;
+line-height:1.8;
 }
+
+/* ABOUT */
 
 .about{
 display:grid;
@@ -191,7 +232,7 @@ align-items:center;
 .about img{
 width:100%;
 border-radius:22px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
+box-shadow:0 18px 40px rgba(0,0,0,.08);
 }
 
 .about h2{
@@ -201,11 +242,11 @@ margin-bottom:20px;
 }
 
 .about p{
-line-height:1.8;
+line-height:1.9;
 margin-bottom:18px;
 }
 
-/* CARDS */
+/* SERVICES */
 
 .cards{
 display:grid;
@@ -217,7 +258,7 @@ gap:24px;
 background:white;
 border-radius:18px;
 overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 12px 28px rgba(0,0,0,.08);
 transition:.3s;
 }
 
@@ -237,7 +278,7 @@ color:var(--blue);
 }
 
 .card p{
-padding:0 18px 20px;
+padding:0 18px 22px;
 color:#64748B;
 }
 
@@ -264,7 +305,7 @@ margin-bottom:18px;
 max-width:650px;
 margin:auto;
 line-height:1.8;
-margin-bottom:28px;
+margin-bottom:30px;
 }
 
 .contact-buttons{
@@ -272,16 +313,6 @@ display:flex;
 justify-content:center;
 gap:18px;
 flex-wrap:wrap;
-}
-
-.whatsapp{
-background:#25D366;
-color:white;
-border:2px solid #25D366;
-}
-
-.whatsapp:hover{
-background:#1EBE57;
 }
 
 /* FOOTER */
@@ -315,7 +346,7 @@ display:block;
 margin-bottom:10px;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 
 @media(max-width:1024px){
 
@@ -334,7 +365,7 @@ grid-template-columns:repeat(2,1fr);
 .menu{
 display:none;
 position:absolute;
-top:86px;
+top:88px;
 left:0;
 width:100%;
 background:white;
