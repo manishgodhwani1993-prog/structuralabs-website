@@ -4,547 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STRUCTURA LABS</title>
-<meta name="description" content="Independent material testing for concrete, cement, aggregates, soil and construction materials.">
+<title>STRUCTURA LABS | Engineering Trust Through Testing</title>
+
+<meta name="description" content="Independent material testing laboratory for concrete, cement, aggregates and soil testing.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-:root{
---primary:#0B4A92;
---dark:#06244A;
---teal:#0FB7A5;
---text:#1F2937;
---bg:#F5F8FC;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Montserrat',sans-serif;
-background:white;
-color:var(--text);
-overflow-x:hidden;
-}
-
-.container{
-width:92%;
-max-width:1320px;
-margin:auto;
-}
-
-/* ---------------- HEADER ---------------- */
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:rgba(255,255,255,.96);
-backdrop-filter:blur(12px);
-box-shadow:0 2px 20px rgba(0,0,0,.05);
-z-index:1000;
-}
-
-.nav{
-height:90px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo img{
-height:56px;
-width:auto;
-}
-
-nav{
-display:flex;
-gap:42px;
-}
-
-nav a{
-text-decoration:none;
-font-weight:600;
-color:#163A70;
-transition:.25s;
-}
-
-nav a:hover{
-color:var(--teal);
-}
-
-.nav-buttons{
-display:flex;
-gap:14px;
-}
-
-.btn{
-display:inline-block;
-padding:14px 28px;
-border-radius:14px;
-font-weight:700;
-text-decoration:none;
-transition:.25s;
-}
-
-.btn-primary{
-background:var(--primary);
-color:white;
-}
-
-.btn-primary:hover{
-background:#08376E;
-}
-
-.btn-outline{
-background:white;
-border:2px solid var(--primary);
-color:var(--primary);
-}
-
-.btn-outline:hover{
-background:var(--primary);
-color:white;
-}
-
-/* ---------------- HERO ---------------- */
-
-.hero{
-
-height:100vh;
-min-height:820px;
-
-display:flex;
-align-items:center;
-
-background:
-linear-gradient(
-90deg,
-rgba(6,36,74,.95) 0%,
-rgba(8,55,110,.84) 40%,
-rgba(8,55,110,.46) 65%,
-rgba(8,55,110,.08) 100%
-),
-url("hero-lab.jpg");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-color:white;
-}
-
-.hero-content{
-max-width:650px;
-padding-top:40px;
-}
-
-.hero h1{
-font-size:74px;
-line-height:1.02;
-font-weight:800;
-margin-bottom:22px;
-color:white;
-text-shadow:0 5px 18px rgba(0,0,0,.25);
-}
-
-.hero h1 span{
-color:var(--teal);
-}
-
-.accent-line{
-width:90px;
-height:4px;
-background:var(--teal);
-border-radius:4px;
-margin-bottom:28px;
-}
-
-.hero p{
-font-size:22px;
-line-height:1.65;
-color:#EAF3FF;
-margin-bottom:38px;
-text-shadow:0 2px 10px rgba(0,0,0,.18);
-}
-
-.hero-buttons{
-display:flex;
-gap:18px;
-flex-wrap:wrap;
-margin-bottom:40px;
-}
-
-.hero .btn-outline{
-background:transparent;
-border-color:white;
-color:white;
-}
-
-.hero .btn-outline:hover{
-background:white;
-color:var(--primary);
-}
-
-/* FEATURE BOXES */
-
-.features{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-margin-bottom:26px;
-}
-
-.feature{
-display:flex;
-align-items:center;
-gap:10px;
-padding:16px;
-border-radius:18px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.15);
-backdrop-filter:blur(8px);
-font-weight:600;
-}
-
-.feature span:first-child{
-font-size:24px;
-}
-
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:16px;
-}
-
-.stat{
-padding:18px;
-text-align:center;
-border-radius:18px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(15,183,165,.25);
-backdrop-filter:blur(8px);
-}
-
-.stat h3{
-font-size:34px;
-color:var(--teal);
-margin-bottom:6px;
-}
-
-.stat p{
-font-size:14px;
-color:#DDE8F6;
-}
-
-/* WAVE */
-
-.wave{
-margin-top:-2px;
-}
-
-.wave svg{
-display:block;
-width:100%;
-}
-
-/* SECTIONS */
-
-section{
-padding:90px 0;
-}
-
-.section-title{
-font-size:46px;
-font-weight:800;
-text-align:center;
-color:var(--primary);
-margin-bottom:16px;
-}
-
-.section-sub{
-max-width:720px;
-margin:0 auto 55px;
-text-align:center;
-color:#64748B;
-}
-
-/* ABOUT */
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.about img{
-width:100%;
-border-radius:24px;
-box-shadow:0 18px 40px rgba(0,0,0,.08);
-}
-
-.about h3{
-font-size:34px;
-color:var(--primary);
-margin-bottom:18px;
-}
-
-.about p{
-line-height:1.8;
-margin-bottom:18px;
-color:#475569;
-}
-
-/* SERVICES */
-
-.services{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:24px;
-}
-
-.service{
-background:white;
-border-radius:22px;
-overflow:hidden;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.service:hover{
-transform:translateY(-8px);
-}
-
-.service img{
-width:100%;
-height:210px;
-object-fit:cover;
-}
-
-.service-content{
-padding:22px;
-}
-
-.service h3{
-color:var(--primary);
-margin-bottom:10px;
-}
-
-/* CONTACT */
-
-.contact-box{
-background:linear-gradient(135deg,#0B4A92,#08376E);
-color:white;
-padding:70px;
-border-radius:28px;
-text-align:center;
-}
-
-.contact-box h2{
-font-size:42px;
-margin-bottom:18px;
-}
-
-.contact-box p{
-max-width:650px;
-margin:0 auto 30px;
-line-height:1.8;
-color:#EAF3FF;
-}
-
-.contact-box .btn-outline{
-background:transparent;
-border-color:white;
-color:white;
-}
-
-.contact-box .btn-outline:hover{
-background:white;
-color:#0B4A92;
-}
-
-/* FOOTER */
-
-footer{
-background:#061C38;
-padding:55px 0;
-color:white;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:40px;
-}
-
-footer img{
-height:52px;
-margin-bottom:20px;
-}
-
-footer h4{
-margin-bottom:16px;
-}
-
-footer a,
-footer p{
-display:block;
-margin-bottom:10px;
-text-decoration:none;
-color:#D5E4F5;
-}
-
-/* MOBILE */
-
-@media(max-width:980px){
-
-nav,
-.nav-buttons{
-display:none;
-}
-
-.hero{
-min-height:920px;
-}
-
-.hero h1{
-font-size:46px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.features,
-.stats,
-.about-grid,
-.services,
-.footer-grid{
-grid-template-columns:1fr;
-}
-
-.contact-box{
-padding:45px 24px;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
-<header>
+<header class="header">
+
 <div class="container nav">
 
 <a href="#" class="logo">
 <img src="logo.jpg" alt="STRUCTURA LABS">
 </a>
 
-<nav>
+<nav class="menu">
+
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#contact">Contact Us</a>
+
 </nav>
 
-<div class="nav-buttons">
-<a href="/verify/" class="btn btn-outline">Verify Report</a>
-<a href="/portal/" class="btn btn-primary">Client Login</a>
-</div>
+<div class="actions">
+
+<a href="/verify/" class="btn btn-outline">
+Verify Report
+</a>
+
+<a href="/portal/" class="btn btn-primary">
+Client Login
+</a>
 
 </div>
+
+<button class="hamburger" id="hamburger">
+☰
+</button>
+
+</div>
+
 </header>
+
 
 <!-- HERO -->
 
 <section class="hero">
 
-<div class="container">
+<div class="container hero-grid">
 
 <div class="hero-content">
 
-<h1>Engineering Trust Through Testing<span>.</span></h1>
+<h1>
+Engineering Trust Through Testing<span>.</span>
+</h1>
 
 <div class="accent-line"></div>
 
 <p>
-Independent material testing for concrete, cement, aggregates,
-soil and construction materials.
+
+Independent material testing for concrete, cement,
+aggregates, soil and construction materials.
+
 </p>
 
 <div class="hero-buttons">
 
 <a href="#contact" class="btn btn-primary">
-Get a Quote →
+Get a Quote
 </a>
 
-<a href="/verify/" class="btn btn-outline">
-▶ Verify a Report
+<a href="/verify/" class="btn btn-outline white">
+Verify a Report
 </a>
-
-</div>
-
-<div class="features">
-
-<div class="feature">
-<span>📋</span>
-<span>Traceable Reports</span>
-</div>
-
-<div class="feature">
-<span>🔗</span>
-<span>Digital Verification</span>
-</div>
-
-<div class="feature">
-<span>🧱</span>
-<span>Civil Materials</span>
-</div>
-
-<div class="feature">
-<span>🏅</span>
-<span>Quality Testing</span>
-</div>
-
-</div>
-
-<div class="stats">
-
-<div class="stat">
-<h3>100+</h3>
-<p>Future Test Capacity</p>
-</div>
-
-<div class="stat">
-<h3>Multiple</h3>
-<p>Material Categories</p>
-</div>
-
-<div class="stat">
-<h3>Digital</h3>
-<p>Report Verification</p>
-</div>
-
-<div class="stat">
-<h3>Secure</h3>
-<p>Report Records</p>
-</div>
 
 </div>
 
@@ -554,43 +96,66 @@ Get a Quote →
 
 </section>
 
-<div class="wave">
-<svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
-<path fill="#ffffff" d="M0,80L120,96C240,112,480,120,720,106.7C960,93,1200,59,1320,48L1440,37L1440,160L0,160Z"></path>
-</svg>
+
+<!-- TRUST BAR -->
+
+<section class="trust-bar">
+
+<div class="container trust-grid">
+
+<div class="trust-card">
+📋
+<h3>Traceable Reports</h3>
+<p>Digitally linked reports</p>
 </div>
+
+<div class="trust-card">
+🔗
+<h3>Digital Verification</h3>
+<p>Instant authenticity check</p>
+</div>
+
+<div class="trust-card">
+🧱
+<h3>Civil Materials</h3>
+<p>Construction testing</p>
+</div>
+
+<div class="trust-card">
+🏅
+<h3>Quality Testing</h3>
+<p>Reliable engineering results</p>
+</div>
+
+</div>
+
+</section>
+
 
 <!-- ABOUT -->
 
-<section id="about" class="about">
+<section id="about" class="section">
 
-<div class="container">
-
-<h2 class="section-title">About STRUCTURA LABS</h2>
-
-<p class="section-sub">
-Building a digital-first material testing laboratory focused on
-engineering confidence and traceable documentation.
-</p>
-
-<div class="about-grid">
+<div class="container about-grid">
 
 <div>
 
-<h3>Reliable Testing. Better Decisions.</h3>
+<h2>About STRUCTURA LABS</h2>
 
 <p>
-STRUCTURA INFRA TESTING LABS PRIVATE LIMITED is building a modern,
-independent material testing laboratory designed for construction,
-infrastructure and industrial projects.
+
+STRUCTURA INFRA TESTING LABS PRIVATE LIMITED is building a
+digital-first material testing laboratory focused on reliability,
+traceability and engineering confidence.
+
 </p>
 
 <p>
-Every report is digitally traceable and can be verified online,
-providing greater confidence for builders, consultants and project owners.
-</p>
 
-<a href="#contact" class="btn btn-primary">Talk to Our Team</a>
+Every report is digitally verifiable, ensuring transparency for
+contractors, consultants and project owners.
+
+</p>
 
 </div>
 
@@ -602,54 +167,49 @@ providing greater confidence for builders, consultants and project owners.
 
 </div>
 
-</div>
-
 </section>
+
 
 <!-- SERVICES -->
 
-<section id="services">
+<section id="services" class="section light">
 
 <div class="container">
 
-<h2 class="section-title">Testing Services</h2>
+<h2 class="center">
+Testing Services
+</h2>
 
-<p class="section-sub">
+<p class="center-sub">
+
 Comprehensive testing solutions for construction materials.
+
 </p>
 
-<div class="services">
+<div class="services-grid">
 
-<div class="service">
-<img src="hero-lab.jpg" alt="Concrete Testing">
-<div class="service-content">
+<div class="service-card">
+<AsyncImage query="concrete compression testing machine concrete cube" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Concrete Testing</h3>
 <p>Cube strength and hardened concrete testing.</p>
 </div>
-</div>
 
-<div class="service">
-<img src="hero-lab.jpg" alt="Cement Testing">
-<div class="service-content">
+<div class="service-card">
+<AsyncImage query="cement testing laboratory" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Cement Testing</h3>
 <p>Physical and chemical testing.</p>
 </div>
-</div>
 
-<div class="service">
-<img src="hero-lab.jpg" alt="Aggregate Testing">
-<div class="service-content">
+<div class="service-card">
+<AsyncImage query="aggregate sieve analysis laboratory" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Aggregate Testing</h3>
 <p>Fine and coarse aggregate evaluation.</p>
 </div>
-</div>
 
-<div class="service">
-<img src="hero-lab.jpg" alt="Soil Testing">
-<div class="service-content">
+<div class="service-card">
+<AsyncImage query="soil testing laboratory geotechnical equipment" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Soil Testing</h3>
-<p>Geotechnical and construction material testing.</p>
-</div>
+<p>Geotechnical material testing.</p>
 </div>
 
 </div>
@@ -658,9 +218,10 @@ Comprehensive testing solutions for construction materials.
 
 </section>
 
+
 <!-- CONTACT -->
 
-<section id="contact">
+<section id="contact" class="contact-section">
 
 <div class="container">
 
@@ -669,11 +230,15 @@ Comprehensive testing solutions for construction materials.
 <h2>Let's Build with Confidence.</h2>
 
 <p>
-Get in touch for quotations, testing requirements and project support.
+
+Need material testing for your project?
+
+Contact STRUCTURA LABS today.
+
 </p>
 
-<a href="mailto:info@structuralabs.in" class="btn btn-outline">
-Contact STRUCTURA
+<a href="mailto:info@structuralabs.in" class="btn btn-outline white">
+Contact Us
 </a>
 
 </div>
@@ -681,6 +246,7 @@ Contact STRUCTURA
 </div>
 
 </section>
+
 
 <!-- FOOTER -->
 
@@ -690,11 +256,11 @@ Contact STRUCTURA
 
 <div>
 
-<img src="logo.jpg" alt="STRUCTURA">
+<img src="logo.jpg" alt="STRUCTURA LABS">
 
-<p>Structura Infra Testing Labs Pvt Ltd</p>
-
-<p>Ambernath, Maharashtra</p>
+<p>
+Engineering Trust Through Testing.
+</p>
 
 </div>
 
@@ -705,7 +271,6 @@ Contact STRUCTURA
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#services">Services</a>
-<a href="/verify/">Verify Report</a>
 
 </div>
 
@@ -713,18 +278,16 @@ Contact STRUCTURA
 
 <h4>Contact</h4>
 
-<a href="mailto:info@structuralabs.in">info@structuralabs.in</a>
-
-<p>
-+91-9970094648
-+91-9112299911
-</p>
+<p>info@structuralabs.in</p>
+<p>Ambernath, Maharashtra</p>
 
 </div>
 
 </div>
 
 </footer>
+
+<script src="main.js"></script>
 
 </body>
 </html>
