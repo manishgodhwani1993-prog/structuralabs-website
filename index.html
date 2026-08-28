@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +14,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 </head>
 
 <body>
-
-<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -29,13 +28,13 @@
 </a>
 
 <nav class="menu" id="menu">
+
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#contact">Contact</a>
-</nav>
 
-<div class="actions">
+<div class="mobile-actions">
 
 <a href="/verify/" class="btn btn-outline">
 Verify Report
@@ -47,7 +46,21 @@ Client Login
 
 </div>
 
-<button class="hamburger" id="hamburger">
+</nav>
+
+<div class="desktop-actions">
+
+<a href="/verify/" class="btn btn-outline">
+Verify Report
+</a>
+
+<a href="/portal/" class="btn btn-primary">
+Client Login
+</a>
+
+</div>
+
+<button class="hamburger" id="hamburger" aria-label="Open Menu">
 ☰
 </button>
 
@@ -55,53 +68,35 @@ Client Login
 
 </header>
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
 <div class="hero-overlay"></div>
 
-<div class="hero-features container">
+<div class="container hero-features">
 
 <div class="feature">
 <span>📋</span>
-<div>
-<strong>Traceable</strong><br>Reports
+<div><strong>Traceable</strong><br>Reports</div>
 </div>
-</div>
-
-<div class="divider"></div>
 
 <div class="feature">
 <span>🔗</span>
-<div>
-<strong>Digital</strong><br>Verification
+<div><strong>Digital</strong><br>Verification</div>
 </div>
-</div>
-
-<div class="divider"></div>
 
 <div class="feature">
 <span>🧱</span>
-<div>
-<strong>Civil</strong><br>Materials
+<div><strong>Civil</strong><br>Materials</div>
 </div>
-</div>
-
-<div class="divider"></div>
 
 <div class="feature">
 <span>🏅</span>
-<div>
-<strong>Quality</strong><br>Testing
-</div>
+<div><strong>Quality</strong><br>Testing</div>
 </div>
 
 </div>
 
 </section>
-
-<!-- ================= ABOUT ================= -->
 
 <section id="about" class="section">
 
@@ -113,16 +108,16 @@ Client Login
 
 <p>
 
-STRUCTURA INFRA TESTING LABS PRIVATE LIMITED is a digital-first
-material testing laboratory focused on accuracy, traceability and
-engineering confidence.
+STRUCTURA INFRA TESTING LABS PRIVATE LIMITED is building a
+digital-first material testing laboratory focused on accuracy,
+traceability and engineering confidence.
 
 </p>
 
 <p>
 
-Every report is digitally verifiable, giving contractors,
-consultants and project owners confidence in every test result.
+Every report is digitally verifiable, ensuring transparency for
+contractors, consultants and project owners.
 
 </p>
 
@@ -130,8 +125,7 @@ consultants and project owners confidence in every test result.
 
 <div>
 
-<img src="hero-banner.jpg?v=11"
-alt="STRUCTURA LABS Laboratory">
+<img src="hero-banner.jpg" alt="STRUCTURA LABS Laboratory">
 
 </div>
 
@@ -139,15 +133,11 @@ alt="STRUCTURA LABS Laboratory">
 
 </section>
 
-<!-- ================= SERVICES ================= -->
-
 <section id="services" class="section light">
 
 <div class="container">
 
-<h2 class="center">
-Testing Services
-</h2>
+<h2 class="center">Testing Services</h2>
 
 <p class="center-sub">
 
@@ -158,63 +148,27 @@ Reliable testing solutions for construction materials.
 <div class="cards">
 
 <div class="card">
-
-<img src="images/concrete-testing.jpg"
-alt="Concrete Testing">
-
+<img src="images/concrete-testing.jpg" loading="lazy" alt="Concrete Testing">
 <h3>Concrete Testing</h3>
-
-<p>
-
-Cube Strength & Compression Testing
-
-</p>
-
+<p>Cube Strength & Compression Testing.</p>
 </div>
 
 <div class="card">
-
-<img src="images/cement-testing.jpg"
-alt="Cement Testing">
-
+<img src="images/cement-testing.jpg" loading="lazy" alt="Cement Testing">
 <h3>Cement Testing</h3>
-
-<p>
-
-Physical & Chemical Testing
-
-</p>
-
+<p>Physical & Chemical Testing.</p>
 </div>
 
 <div class="card">
-
-<img src="images/aggregate-testing.jpg"
-alt="Aggregate Testing">
-
+<img src="images/aggregate-testing.jpg" loading="lazy" alt="Aggregate Testing">
 <h3>Aggregate Testing</h3>
-
-<p>
-
-Fine & Coarse Aggregate Evaluation
-
-</p>
-
+<p>Fine & Coarse Aggregate Evaluation.</p>
 </div>
 
 <div class="card">
-
-<img src="images/soil-testing.jpg"
-alt="Soil Testing">
-
+<img src="images/soil-testing.jpg" loading="lazy" alt="Soil Testing">
 <h3>Soil Testing</h3>
-
-<p>
-
-Geotechnical Material Testing
-
-</p>
-
+<p>Geotechnical Material Testing.</p>
 </div>
 
 </div>
@@ -222,8 +176,6 @@ Geotechnical Material Testing
 </div>
 
 </section>
-
-<!-- ================= CONTACT ================= -->
 
 <section id="contact" class="contact">
 
@@ -258,6 +210,13 @@ class="btn btn-outline white">
 
 </a>
 
+<a href="tel:+919970094648"
+class="btn btn-outline white">
+
+📞 Call
+
+</a>
+
 </div>
 
 </div>
@@ -265,8 +224,6 @@ class="btn btn-outline white">
 </div>
 
 </section>
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -278,7 +235,7 @@ class="btn btn-outline white">
 
 <p>
 
-Results You Can Build On.
+Engineering Trust Through Testing.
 
 </p>
 
@@ -301,11 +258,7 @@ Results You Can Build On.
 
 <p>info@structuralabs.in</p>
 
-<p>
-<a href="tel:+919970094648">
-+91 99700 94648
-</a>
-</p>
+<p><a href="tel:+919970094648">+91 99700 94648</a></p>
 
 <p>Ambernath, Maharashtra</p>
 
@@ -315,7 +268,7 @@ Results You Can Build On.
 
 </footer>
 
-<script src="main.js?v=11"></script>
+<script src="main.js?v=12"></script>
 
 </body>
 </html>
