@@ -8,7 +8,6 @@
     --teal:#11C5B5;
     --bg:#F5F8FC;
     --text:#24364B;
-    --white:#ffffff;
 }
 
 *{
@@ -23,8 +22,8 @@ html{
 
 body{
     font-family:'Montserrat',sans-serif;
-    background:white;
     color:var(--text);
+    background:#fff;
     overflow-x:hidden;
 }
 
@@ -52,19 +51,19 @@ img{
 }
 
 .nav{
-    height:92px;
+    height:88px;
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
 .logo img{
-    height:62px;
+    height:58px;
 }
 
 .menu{
     display:flex;
-    gap:42px;
+    gap:38px;
 }
 
 .menu a{
@@ -89,22 +88,24 @@ img{
     width:100%;
 }
 
+/* ================= BUTTONS ================= */
+
 .actions{
     display:flex;
-    gap:14px;
+    gap:12px;
+    align-items:center;
 }
-
-/* Buttons */
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:14px 28px;
-    border-radius:15px;
+    padding:13px 22px;
+    border-radius:12px;
     text-decoration:none;
     font-weight:700;
     transition:.25s;
+    white-space:nowrap;
 }
 
 .btn-primary{
@@ -127,23 +128,12 @@ img{
     color:white;
 }
 
-.btn-outline.white{
-    border-color:white;
-    color:white;
-    background:transparent;
-}
-
-.btn-outline.white:hover{
-    background:white;
-    color:var(--primary);
-}
-
-/* Hamburger */
+/* ================= HAMBURGER ================= */
 
 .hamburger{
     display:none;
-    border:none;
     background:none;
+    border:none;
     font-size:28px;
     cursor:pointer;
 }
@@ -153,12 +143,9 @@ img{
 .hero{
     position:relative;
     height:100vh;
-    min-height:760px;
-    overflow:hidden;
+    min-height:720px;
     background:url("hero-banner.jpg?v=8") center center/cover no-repeat;
 }
-
-/* No HTML text */
 
 .hero-content{
     display:none;
@@ -171,31 +158,27 @@ img{
 /* ================= FEATURE STRIP ================= */
 
 .hero-features{
-
     position:absolute;
     left:50%;
     bottom:35px;
     transform:translateX(-50%);
-
     width:min(92%,1200px);
 
     display:flex;
-    justify-content:flex-start;
     align-items:center;
-    gap:30px;
+    gap:28px;
 
     color:white;
-
 }
 
 .feature-item{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:12px;
 }
 
 .feature-item span{
-    font-size:34px;
+    font-size:32px;
 }
 
 .feature-item strong{
@@ -210,14 +193,14 @@ img{
 
 .feature-divider{
     width:1px;
-    height:52px;
+    height:48px;
     background:rgba(255,255,255,.25);
 }
 
 /* ================= GENERAL ================= */
 
 .section{
-    padding:100px 0;
+    padding:90px 0;
 }
 
 .light{
@@ -227,14 +210,14 @@ img{
 .center{
     text-align:center;
     color:var(--primary);
-    font-size:44px;
-    margin-bottom:16px;
+    font-size:42px;
+    margin-bottom:14px;
 }
 
 .center-sub{
     text-align:center;
     max-width:700px;
-    margin:0 auto 50px;
+    margin:0 auto 45px;
     color:#64748B;
     line-height:1.8;
 }
@@ -244,7 +227,7 @@ img{
 .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:60px;
+    gap:55px;
     align-items:center;
 }
 
@@ -255,13 +238,13 @@ img{
 
 .about-grid h2{
     color:var(--primary);
-    font-size:42px;
-    margin-bottom:24px;
+    font-size:40px;
+    margin-bottom:20px;
 }
 
 .about-grid p{
-    color:#475569;
     line-height:1.9;
+    color:#475569;
     margin-bottom:18px;
 }
 
@@ -270,14 +253,14 @@ img{
 .services-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:24px;
+    gap:22px;
 }
 
 .service-card{
     background:white;
-    border-radius:20px;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
     transition:.3s;
 }
 
@@ -293,37 +276,37 @@ img{
 
 .service-card h3{
     color:var(--primary);
-    padding:20px 20px 8px;
+    padding:18px 18px 8px;
 }
 
 .service-card p{
+    padding:0 18px 22px;
     color:#64748B;
-    padding:0 20px 22px;
     line-height:1.7;
 }
 
 /* ================= CONTACT ================= */
 
 .contact-section{
-    padding:100px 0;
+    padding:90px 0;
 }
 
 .contact-box{
     background:linear-gradient(135deg,var(--primary),#08376E);
     color:white;
-    border-radius:28px;
-    padding:70px;
+    border-radius:26px;
+    padding:65px;
     text-align:center;
 }
 
 .contact-box h2{
-    font-size:44px;
-    margin-bottom:18px;
+    font-size:42px;
+    margin-bottom:16px;
 }
 
 .contact-box p{
     max-width:650px;
-    margin:0 auto 32px;
+    margin:0 auto 30px;
     line-height:1.8;
 }
 
@@ -337,17 +320,17 @@ footer{
 .footer-grid{
     display:grid;
     grid-template-columns:2fr 1fr 1fr;
-    gap:40px;
+    gap:35px;
 }
 
 footer img{
-    height:52px;
-    margin-bottom:18px;
+    height:50px;
+    margin-bottom:16px;
 }
 
 footer h4{
     color:white;
-    margin-bottom:16px;
+    margin-bottom:14px;
 }
 
 footer p,
@@ -358,7 +341,7 @@ footer a{
     margin-bottom:10px;
 }
 
-/* ================= ANIMATION ================= */
+/* ================= ANIMATIONS ================= */
 
 .hidden{
     opacity:0;
@@ -371,7 +354,7 @@ footer a{
     transform:none;
 }
 
-/* ================= MOBILE ================= */
+/* ================= TABLET ================= */
 
 @media(max-width:1024px){
 
@@ -385,47 +368,64 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:768px){
 
-.menu,
-.actions{
+/* Hide only menu */
+.menu{
 display:none;
 }
 
-.hamburger{
-display:block;
+/* Keep buttons visible */
+.actions{
+display:flex;
+gap:6px;
+align-items:center;
 }
 
+/* Smaller buttons */
+.actions .btn{
+padding:8px 10px;
+font-size:11px;
+border-radius:8px;
+}
+
+/* Show hamburger */
+.hamburger{
+display:block;
+font-size:24px;
+margin-left:8px;
+}
+
+/* Mobile menu */
 .menu.mobile-open{
 display:flex;
 flex-direction:column;
 position:absolute;
-top:92px;
+top:88px;
 left:0;
 width:100%;
 background:white;
 padding:24px;
-gap:20px;
+gap:18px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .hero{
-min-height:520px;
+min-height:480px;
+height:auto;
 }
 
 .hero-features{
-
 position:static;
 transform:none;
 width:100%;
+padding:30px 20px;
 flex-direction:column;
 align-items:flex-start;
-
-padding:35px 20px;
-gap:20px;
-
+gap:18px;
 background:var(--navy);
-
 }
 
 .feature-divider{
@@ -438,15 +438,15 @@ grid-template-columns:1fr;
 }
 
 .contact-box{
-padding:45px 24px;
+padding:40px 22px;
 }
 
 .center{
-font-size:34px;
+font-size:32px;
 }
 
 .about-grid h2{
-font-size:34px;
+font-size:32px;
 }
 
 }
