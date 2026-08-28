@@ -60,7 +60,6 @@ img{
 
 .logo img{
   height:58px;
-  width:auto;
 }
 
 /* ================= NAVIGATION ================= */
@@ -90,15 +89,11 @@ img{
   transition:.3s;
 }
 
-.menu a:hover{
-  color:#08376E;
-}
-
 .menu a:hover::after{
   width:100%;
 }
 
-/* ================= ACTION BUTTONS ================= */
+/* ================= BUTTONS ================= */
 
 .actions{
   display:flex;
@@ -183,12 +178,10 @@ img{
 /* ================= FEATURE STRIP ================= */
 
 .hero-features{
-
   position:absolute;
   left:50%;
   bottom:36px;
   transform:translateX(-50%);
-
   width:min(92%,1200px);
 
   display:grid;
@@ -199,11 +192,9 @@ img{
 }
 
 .feature{
-
   display:flex;
   align-items:center;
   gap:12px;
-
   color:white;
 }
 
@@ -404,17 +395,19 @@ footer{
 @media(max-width:768px){
 
   .nav{
-    height:76px;
+    height:72px;
+    gap:6px;
   }
 
   .logo img{
-    height:46px;
+    height:42px;
   }
 
+  /* Hide desktop menu */
   .menu{
     display:none;
     position:absolute;
-    top:76px;
+    top:72px;
     left:0;
     width:100%;
     background:white;
@@ -422,53 +415,67 @@ footer{
     padding:24px;
     gap:18px;
     box-shadow:0 12px 28px rgba(0,0,0,.08);
+    z-index:999;
   }
 
   .menu.open{
     display:flex;
   }
 
+  /* Keep buttons visible */
   .actions{
+    display:flex;
     gap:6px;
+    margin-left:auto;
   }
 
   .actions .btn{
-    padding:8px 10px;
-    font-size:11px;
+    padding:7px 9px;
+    font-size:10px;
     border-radius:8px;
   }
 
+  /* Always show hamburger */
   .hamburger{
-    display:block;
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    margin-left:6px;
+    border:none;
+    background:transparent;
+    color:var(--blue);
     font-size:24px;
-    margin-left:8px;
+    cursor:pointer;
+    flex-shrink:0;
   }
 
+  /* Hero */
   .hero{
     min-height:520px;
     height:auto;
   }
 
   .hero-features{
-
     position:static;
     transform:none;
-
     width:100%;
-
     display:flex;
     flex-direction:column;
     align-items:flex-start;
-
     gap:18px;
-
     padding:30px 20px;
-
     background:var(--navy);
   }
 
   .feature span{
     font-size:30px;
+  }
+
+  /* Layout */
+  .about{
+    grid-template-columns:1fr;
   }
 
   .cards,
@@ -477,7 +484,7 @@ footer{
   }
 
   .contact-box{
-    padding:42px 24px;
+    padding:40px 22px;
   }
 
   .center{
@@ -487,5 +494,17 @@ footer{
   .about h2{
     font-size:32px;
   }
+}
 
+/* ================= SCROLL ANIMATION ================= */
+
+.hidden{
+  opacity:0;
+  transform:translateY(35px);
+  transition:.7s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
 }
