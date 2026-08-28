@@ -572,3 +572,10 @@ height:300px;
 }
 
 }
+
+.location-info h3,
+.location-info p,
+.location-info strong,
+.location-info a{
+    color:#FFFFFF !important;
+}
