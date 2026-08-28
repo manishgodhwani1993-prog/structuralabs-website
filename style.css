@@ -4,6 +4,7 @@
 --teal:#11C5B5;
 --light:#F5F8FC;
 --text:#24364B;
+--white:#ffffff;
 }
 
 *{
@@ -18,7 +19,7 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Montserrat',sans-serif;
-background:white;
+background:var(--white);
 color:var(--text);
 overflow-x:hidden;
 }
@@ -51,18 +52,20 @@ height:84px;
 display:flex;
 align-items:center;
 justify-content:space-between;
+gap:20px;
 }
 
 .logo img{
 height:56px;
+width:auto;
 }
 
-/* NAVIGATION */
+/* MENU */
 
 .menu{
 display:flex;
-gap:34px;
 align-items:center;
+gap:34px;
 }
 
 .menu a{
@@ -80,8 +83,8 @@ bottom:-8px;
 width:0;
 height:3px;
 background:var(--teal);
-transition:.3s;
 border-radius:3px;
+transition:.3s;
 }
 
 .menu a:hover::after{
@@ -107,6 +110,7 @@ padding:12px 20px;
 border-radius:12px;
 font-weight:700;
 text-decoration:none;
+white-space:nowrap;
 transition:.25s;
 }
 
@@ -120,8 +124,8 @@ background:#08376E;
 }
 
 .btn-outline{
-border:2px solid var(--blue);
 background:white;
+border:2px solid var(--blue);
 color:var(--blue);
 }
 
@@ -148,8 +152,8 @@ display:none;
 background:none;
 border:none;
 font-size:28px;
-color:var(--blue);
 cursor:pointer;
+color:var(--blue);
 }
 
 /* HERO */
@@ -158,17 +162,21 @@ cursor:pointer;
 position:relative;
 height:100vh;
 min-height:700px;
-background:url("hero-banner.jpg?v=13") center/cover no-repeat;
+background:url("hero-banner.jpg?v=14") center center/cover no-repeat;
 overflow:hidden;
 }
 
 .hero-overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom,
+background:linear-gradient(
+180deg,
 rgba(0,0,0,.05),
-rgba(0,0,0,.20));
+rgba(0,0,0,.20)
+);
 }
+
+/* FEATURE STRIP */
 
 .hero-features{
 position:absolute;
@@ -180,6 +188,7 @@ width:min(92%,1200px);
 display:flex;
 justify-content:space-between;
 align-items:center;
+gap:20px;
 
 padding:18px 24px;
 
@@ -255,6 +264,7 @@ margin-bottom:20px;
 .about p{
 line-height:1.9;
 margin-bottom:18px;
+color:#475569;
 }
 
 /* SERVICES */
@@ -290,8 +300,8 @@ color:var(--blue);
 
 .card p{
 padding:0 18px 22px;
-color:#64748B;
 line-height:1.7;
+color:#64748B;
 }
 
 /* CONTACT */
@@ -376,7 +386,6 @@ grid-template-columns:repeat(2,1fr);
 .hero-features{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:20px;
 }
 
 }
@@ -399,6 +408,7 @@ display:none;
 
 .hamburger{
 display:block;
+margin-left:auto;
 }
 
 .menu{
@@ -413,6 +423,7 @@ flex-direction:column;
 align-items:flex-start;
 gap:18px;
 box-shadow:0 12px 28px rgba(0,0,0,.08);
+z-index:999;
 }
 
 .menu.open{
@@ -447,6 +458,7 @@ padding:28px 20px;
 border-radius:0;
 background:var(--navy);
 backdrop-filter:none;
+border:none;
 }
 
 .cards,
