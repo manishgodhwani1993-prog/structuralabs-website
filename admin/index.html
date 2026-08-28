@@ -5,14 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STRUCTURA LABS | Dashboard</title>
+<title>STRUCTURA LABS | Admin Dashboard</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="dashboard.css?v=3">
 
 </head>
 
@@ -20,41 +20,71 @@
 
 <div class="layout">
 
+<!-- SIDEBAR -->
+
 <aside class="sidebar">
 
 <img src="../logo.jpg" class="logo" alt="STRUCTURA LABS">
 
 <div class="menu">
 
-<button class="active">
+<button class="active" onclick="location.href='/admin/'">
 🏠 Dashboard
 </button>
 
-<button onclick="window.location.href='/admin/pages/new-sample.html'">
-📥 New Sample
+<button onclick="location.href='/admin/pages/clients.html'">
+👤 Client Database
 </button>
 
-<button onclick="window.location.href='/admin/pages/testing-queue.html'">
+<button onclick="location.href='/admin/pages/new-sample.html'">
+📥 Sample Register
+</button>
+
+<button onclick="location.href='/admin/pages/testing-queue.html'">
 🧪 Testing Queue
 </button>
 
-<button onclick="window.location.href='/admin/pages/reports.html'">
-📄 Reports
+<button onclick="location.href='/admin/pages/generate-report.html'">
+📄 Create Report
 </button>
 
-<button onclick="window.location.href='/admin/pages/clients.html'">
-👥 Clients
+<button onclick="location.href='/admin/pages/reports.html'">
+📚 Report Database
 </button>
 
-<button onclick="window.location.href='/admin/pages/settings.html'">
+<button onclick="location.href='/admin/pages/upload.html'">
+📤 Upload Report
+</button>
+
+<button onclick="location.href='/verify/'">
+🔍 Verify Report
+</button>
+
+<button onclick="location.href='/portal/'">
+👥 Client Portal
+</button>
+
+<button onclick="location.href='/admin/pages/settings.html'">
 ⚙️ Settings
 </button>
 
 </div>
 
+<div class="sidebar-footer">
+
+<p>STRUCTURA INFRA TESTING LABS PVT. LTD.</p>
+
+<small>CIN U71200MR2026PTC478913</small>
+
+</div>
+
 </aside>
 
+<!-- MAIN -->
+
 <main class="main">
+
+<!-- TOP HEADER -->
 
 <div class="header">
 
@@ -62,61 +92,342 @@
 
 <h1>Dashboard</h1>
 
-<div class="subtitle">
+<p class="subtitle">
 STRUCTURA Laboratory Information Management System
+</p>
+
+</div>
+
+<div class="header-status">
+
+<div class="status-box">
+📅 <span id="todayDate"></span>
+</div>
+
+<div class="status-box">
+🟢 Operational
 </div>
 
 </div>
 
 </div>
 
-<!-- Statistics -->
+<!-- DASHBOARD CARDS -->
 
 <div class="stats">
 
-<div class="card">
+<div class="card blue">
+<div class="icon">📥</div>
 <h3>Samples Today</h3>
-<div class="value">0</div>
+<div class="value" id="samplesToday">0</div>
 </div>
 
-<div class="card">
+<div class="card orange">
+<div class="icon">🧪</div>
 <h3>Testing Queue</h3>
-<div class="value">0</div>
+<div class="value" id="testingQueue">0</div>
 </div>
 
-<div class="card">
+<div class="card green">
+<div class="icon">📄</div>
 <h3>Reports Issued</h3>
-<div class="value">0</div>
+<div class="value" id="reportsIssued">0</div>
 </div>
 
-<div class="card">
-<h3>Clients</h3>
-<div class="value">0</div>
+<div class="card purple">
+<div class="icon">👤</div>
+<h3>Total Clients</h3>
+<div class="value" id="clientsCount">0</div>
 </div>
 
 </div>
 
-<!-- Quick Actions -->
+<!-- QUICK ACTIONS -->
 
-<div class="quick">
+<section class="section">
 
-<button onclick="window.location.href='/admin/pages/new-sample.html'">
-📥 Upload
+<h2>Quick Actions</h2>
+
+<div class="actions-grid">
+
+<button onclick="location.href='/admin/pages/clients.html'">
+👤
+<span>Create Client</span>
 </button>
 
-<button onclick="window.location.href='/admin/pages/testing-queue.html'">
-🧪 Testing Queue
+<button onclick="location.href='/admin/pages/new-sample.html'">
+📥
+<span>Create Sample</span>
 </button>
 
-<button onclick="window.location.href='/admin/pages/reports.html'">
-📄 Reports
+<button onclick="location.href='/admin/pages/generate-report.html'">
+📄
+<span>Create Report</span>
+</button>
+
+<button onclick="location.href='/admin/pages/upload.html'">
+📤
+<span>Upload Report</span>
+</button>
+
+<button onclick="location.href='/admin/pages/reports.html'">
+📚
+<span>Report Database</span>
+</button>
+
+<button onclick="location.href='/portal/'">
+👥
+<span>Client Login</span>
 </button>
 
 </div>
+
+</section>
+
+<!-- ID SYSTEM -->
+
+<section class="section">
+
+<h2>Auto ID System</h2>
+
+<div class="id-grid">
+
+<div class="id-card">
+
+<h3>Client ID</h3>
+
+<div class="id-value">CLA000001</div>
+
+<p>Permanent Alphanumeric Client ID</p>
+
+</div>
+
+<div class="id-card">
+
+<h3>Sample ID</h3>
+
+<div class="id-value">SMID/26-27/123456</div>
+
+<p>Generated During Sample Registration</p>
+
+</div>
+
+<div class="id-card">
+
+<h3>Report ID</h3>
+
+<div class="id-value">SITL/26-27/123456</div>
+
+<p>Generated During Report Creation</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TODAY'S TESTING QUEUE -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>Today's Testing Queue</h2>
+
+<a href="/admin/pages/testing-queue.html">
+View All →
+</a>
+
+</div>
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Sample ID</th>
+<th>Client</th>
+<th>Material</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>SMID/26-27/123456</td>
+
+<td>Rajlaxmi Hardware</td>
+
+<td>Concrete</td>
+
+<td><span class="badge testing">Testing</span></td>
+
+</tr>
+
+<tr>
+
+<td>SMID/26-27/123457</td>
+
+<td>ABC Builders</td>
+
+<td>Cement</td>
+
+<td><span class="badge pending">Pending</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- RECENT REPORTS -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>Recent Reports</h2>
+
+<a href="/admin/pages/reports.html">
+Open →
+</a>
+
+</div>
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Report No.</th>
+<th>Sample ID</th>
+<th>Client</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>SITL/26-27/123450</td>
+
+<td>SMID/26-27/123450</td>
+
+<td>Rajlaxmi Hardware</td>
+
+<td><span class="badge verified">Verified</span></td>
+
+</tr>
+
+<tr>
+
+<td>SITL/26-27/123451</td>
+
+<td>SMID/26-27/123451</td>
+
+<td>JSW Cement</td>
+
+<td><span class="badge verified">Verified</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- WORKFLOW -->
+
+<section class="section">
+
+<h2>STRUCTURA Workflow</h2>
+
+<div class="workflow">
+
+<div class="step">
+
+<div class="step-icon">👤</div>
+
+<h3>Create Client</h3>
+
+<p>CLA000001</p>
+
+</div>
+
+<div class="arrow">→</div>
+
+<div class="step">
+
+<div class="step-icon">📥</div>
+
+<h3>Create Sample</h3>
+
+<p>SMID/26-27/123456</p>
+
+</div>
+
+<div class="arrow">→</div>
+
+<div class="step">
+
+<div class="step-icon">📄</div>
+
+<h3>Create Report</h3>
+
+<p>SITL/26-27/123456</p>
+
+</div>
+
+<div class="arrow">→</div>
+
+<div class="step">
+
+<div class="step-icon">📤</div>
+
+<h3>Upload</h3>
+
+<p>Signed PDF</p>
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
 </div>
+
+<script>
+
+document.getElementById("todayDate").textContent =
+new Date().toLocaleDateString("en-IN",{
+day:"2-digit",
+month:"short",
+year:"numeric"
+});
+
+</script>
 
 </body>
 </html>
