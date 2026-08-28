@@ -480,7 +480,95 @@ font-size:32px;
 }
 
 .about h2{
+
 font-size:32px;
+}
+
+}
+
+/* =========================
+   LOCATION SECTION
+========================= */
+
+.location{
+padding:90px 0;
+background:#F5F8FC;
+}
+
+.location-grid{
+display:grid;
+grid-template-columns:1fr 1.35fr;
+gap:40px;
+align-items:center;
+}
+
+.location-info{
+background:#fff;
+padding:35px;
+border-radius:22px;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.location-info h3{
+font-size:30px;
+color:#0B4A92;
+margin-bottom:18px;
+}
+
+.location-info p{
+margin-bottom:12px;
+line-height:1.8;
+color:#475569;
+}
+
+.location-info a{
+color:#0B4A92;
+text-decoration:none;
+font-weight:600;
+}
+
+.location-info .btn{
+margin-top:15px;
+width:100%;
+justify-content:center;
+}
+
+.map-box{
+overflow:hidden;
+border-radius:22px;
+box-shadow:0 15px 35px rgba(0,0,0,.10);
+}
+
+.map-box iframe{
+width:100%;
+height:420px;
+border:0;
+display:block;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.location{
+padding:70px 0;
+}
+
+.location-grid{
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.location-info{
+padding:25px;
+}
+
+.location-info h3{
+font-size:24px;
+}
+
+.map-box iframe{
+height:300px;
 }
 
 }
