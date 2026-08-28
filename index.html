@@ -13,10 +13,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header class="header">
 
@@ -44,6 +46,8 @@
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div class="hero-overlay"></div>
@@ -52,41 +56,35 @@
 
 <div class="feature">
 <span>📋</span>
-<div>
-<strong>Traceable</strong><br>Reports
-</div>
+<div><strong>Traceable</strong><br>Reports</div>
 </div>
 
 <div class="divider"></div>
 
 <div class="feature">
 <span>🔗</span>
-<div>
-<strong>Digital</strong><br>Verification
-</div>
+<div><strong>Digital</strong><br>Verification</div>
 </div>
 
 <div class="divider"></div>
 
 <div class="feature">
 <span>🧱</span>
-<div>
-<strong>Civil</strong><br>Materials
-</div>
+<div><strong>Civil</strong><br>Materials</div>
 </div>
 
 <div class="divider"></div>
 
 <div class="feature">
 <span>🏅</span>
-<div>
-<strong>Quality</strong><br>Testing
-</div>
+<div><strong>Quality</strong><br>Testing</div>
 </div>
 
 </div>
 
 </section>
+
+<!-- ABOUT -->
 
 <section id="about" class="section">
 
@@ -98,16 +96,16 @@
 
 <p>
 
-STRUCTURA INFRA TESTING LABS PRIVATE LIMITED is building a
-modern digital-first material testing laboratory focused on
-accuracy, traceability and engineering confidence.
+STRUCTURA INFRA TESTING LABS PRIVATE LIMITED is a digital-first
+material testing laboratory focused on accuracy, traceability and
+engineering confidence.
 
 </p>
 
 <p>
 
-Every report is digitally verifiable, ensuring transparency
-for contractors, consultants and project owners.
+Every report is digitally verifiable, giving contractors, consultants
+and project owners confidence in every test result.
 
 </p>
 
@@ -115,13 +113,15 @@ for contractors, consultants and project owners.
 
 <div>
 
-<img src="hero-banner.jpg" alt="STRUCTURA LABS">
+<img src="hero-banner.jpg?v=10" alt="STRUCTURA LABS Laboratory">
 
 </div>
 
 </div>
 
 </section>
+
+<!-- SERVICES -->
 
 <section id="services" class="section light">
 
@@ -131,50 +131,34 @@ for contractors, consultants and project owners.
 
 <p class="center-sub">
 
-Comprehensive testing solutions for construction materials.
+Reliable testing solutions for construction materials.
 
 </p>
 
 <div class="cards">
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Concrete Testing">
-
+<AsyncImage query="concrete compression testing machine concrete cube" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Concrete Testing</h3>
-
-<p>Cube Strength and Compression Testing.</p>
-
+<p>Cube Strength & Compression Testing</p>
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" alt="Cement Testing">
-
+<AsyncImage query="cement testing laboratory" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Cement Testing</h3>
-
-<p>Physical and Chemical Testing.</p>
-
+<p>Physical & Chemical Testing</p>
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1504307651254-35680f356df?w=800&q=80" alt="Aggregate Testing">
-
+<AsyncImage query="aggregate sieve analysis laboratory" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Aggregate Testing</h3>
-
-<p>Fine and Coarse Aggregate Evaluation.</p>
-
+<p>Fine & Coarse Aggregate Evaluation</p>
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Soil Testing">
-
+<AsyncImage query="soil testing laboratory geotechnical equipment" aspectRatio="5:4" width="100%" maxHeight=220 radius=none/>
 <h3>Soil Testing</h3>
-
-<p>Geotechnical Material Testing.</p>
-
+<p>Geotechnical Material Testing</p>
 </div>
 
 </div>
@@ -182,6 +166,8 @@ Comprehensive testing solutions for construction materials.
 </div>
 
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
@@ -194,21 +180,23 @@ Comprehensive testing solutions for construction materials.
 <p>
 
 Need reliable material testing for your project?
+
 Contact STRUCTURA LABS today.
 
 </p>
 
 <div class="contact-buttons">
 
-<a href="mailto:info@structuralabs.in" class="btn btn-outline white">
+<a href="mailto:info@structuralabs.in"
+class="btn btn-outline white">
 
 ✉ Email
 
 </a>
 
-<a href="https://wa.me/919970094648?text=Hello%20STRUCTURA%20LABS,%20I%20need%20material%20testing%20information."
+<a href="https://wa.me/919876543210?text=Hello%20STRUCTURA%20LABS,%20I%20need%20information%20about%20material%20testing."
 target="_blank"
-class="btn whatsapp">
+class="btn btn-outline white">
 
 💬 WhatsApp
 
@@ -221,6 +209,8 @@ class="btn whatsapp">
 </div>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -259,14 +249,7 @@ class="btn whatsapp">
 
 </footer>
 
-<script>
-
-const hamburger=document.getElementById("hamburger");
-const menu=document.getElementById("menu");
-
-hamburger.onclick=()=>menu.classList.toggle("open");
-
-</script>
+<script src="main.js?v=10"></script>
 
 </body>
 </html>
