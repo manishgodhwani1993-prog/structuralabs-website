@@ -621,3 +621,30 @@ height:300px;
 .location-info a{
     color:#FFFFFF !important;
 }
+
+/* ===== LOCATION TEXT FIX ===== */
+
+.location-info{
+    background:#051B37 !important;
+    color:#FFFFFF !important;
+}
+
+.location-info h3{
+    color:#FFFFFF !important;
+}
+
+.location-info p{
+    color:#D8E5F4 !important;
+}
+
+.location-info strong{
+    color:#FFFFFF !important;
+}
+
+.location-info a{
+    color:#FFFFFF !important;
+}
+
+.location-info .btn{
+    color:#FFFFFF !important;
+}
