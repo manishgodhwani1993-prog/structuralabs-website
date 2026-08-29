@@ -648,3 +648,10 @@ height:300px;
 .location-info .btn{
     color:#FFFFFF !important;
 }
+
+.location-info h3,
+.location-info p,
+.location-info strong,
+.location-info a{
+    color:#24364B !important;
+}
